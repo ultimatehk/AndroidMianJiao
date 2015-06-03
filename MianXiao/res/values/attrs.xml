@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TopTitleBar">
+
+        <!-- 背景颜色,默认颜色为color/title_bar_bg -->
+        <attr name="title_bar_bg" format="integer" />
+        <!-- 顶部标题栏的标题 -->
+        <attr name="title" format="string" />
+        <!-- 左边按钮的drawable -->
+        <attr name="left_btn_drawable" format="reference" />
+        <!-- 右边按钮的drawable -->
+        <attr name="right_btn_drawable" format="reference" />
+        <!-- 左边按钮的文案 -->
+        <attr name="left_btn_title" format="string" />
+        <!-- 右边按钮的文案 -->
+        <attr name="right_btn_title" format="string" />
+        <!-- 左边按钮是否显示,默认为显示 -->
+        <attr name="left_btn_show" format="boolean" />
+        <!-- 右边按钮是否显示,默认为显示 -->
+        <attr name="right_btn_show" format="boolean" />
+        <!-- 右边按钮文案颜色,默认为title_bar_right_text_color -->
+        <attr name="right_btn_text_color" format="integer" />
+        <!-- 右边按钮文案字体大小,默认为18sp -->
+        <attr name="right_btn_text_size" format="dimension" />
+        <!-- 左边按钮文案颜色,title_bar_left_text_color -->
+        <attr name="left_btn_text_color" format="integer" />
+        <!-- 左边按钮文案字体大小,默认为18sp -->
+        <attr name="left_btn_text_size" format="dimension" />
+        <!-- 标题栏文案颜色,默认为title_bar_title_text_color -->
+        <attr name="title_color" format="integer" />
+        <!-- 标题栏文案字体大小,默认为19sp -->
+        <attr name="title_text_size" format="dimension" />
+        <!-- 是否显示分割线,默认为显示 -->
+        <attr name="show_dividor_line" format="boolean" />
+    </declare-styleable>
+
+</resources>
