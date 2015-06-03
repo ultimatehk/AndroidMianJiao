@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.leaven.mianxiao.R;
 import com.leaven.mianxiao.fragment.HomeFragment;
+import com.leaven.mianxiao.fragment.OrderCenterFragment;
+import com.leaven.mianxiao.fragment.UserCenterFragment;
 import com.leaven.mianxiao.pager.BasePager.AbstractPagerFragment;
 
 import android.os.Bundle;
@@ -30,10 +32,9 @@ public class MultiTabFragment extends Fragment {
 
 	public List<AbstractPagerFragment> initFragments() {
 		List<AbstractPagerFragment> list = new ArrayList<AbstractPagerFragment>();
-		// TODO 增加Tab
 		list.add(new HomeFragment());
-		list.add(new HomeFragment());
-		list.add(new HomeFragment());
+		list.add(new OrderCenterFragment());
+		list.add(new UserCenterFragment());
 		for (AbstractPagerFragment fragment : list) {
 			fragment.setTabIndicator(tabIndicator);
 		}

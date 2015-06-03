@@ -4,16 +4,17 @@ import com.leaven.mianxiao.R;
 import com.leaven.mianxiao.pager.BasePager;
 import com.leaven.mianxiao.tools.Constant;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HomeFragment extends BasePager.AbstractPagerFragment {
+public class UserCenterFragment extends BasePager.AbstractPagerFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_home, null);
+		View v = inflater.inflate(R.layout.fragment_user_center, null);
 		return v;
 	}
 
@@ -29,11 +30,11 @@ public class HomeFragment extends BasePager.AbstractPagerFragment {
 
 	@Override
 	public int getIconResId() {
-		return R.drawable.selector_homebottom_tab_homepage;
+		return R.drawable.selector_homebottom_tab_usercenter;
 	}
 
 	@Override
 	public String getPageTitle() {
-		return Constant.MULTI_TAB_HOME;
+		return Constant.MULTI_TAB_USER;
 	}
 }

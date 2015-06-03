@@ -195,4 +195,20 @@ public class CommonUtils {
 		return bd.setScale(num, roundMode).doubleValue();
 	}
 
+	/**
+	 * 得到Color，从资源上获得
+	 * 
+	 * @param context
+	 * @param rId
+	 *            资源id
+	 * @return
+	 */
+	public static int getColorFromResource(Context context, int rId) {
+		if (context == null) {
+			return 0;
+		} else {
+			return context.getResources().getColor(rId);
+		}
+	}
+
 }

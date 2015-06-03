@@ -2,9 +2,17 @@ package com.leaven.mianxiao.pager;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
+import com.leaven.mianxiao.R;
+import com.leaven.mianxiao.tools.Constant;
+
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
@@ -12,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class TabIndicator extends HorizontalScrollView implements PageIndicator {
 	/** Title text used when no title is provided by the adapter. */
@@ -119,6 +128,9 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 
 	private void addTab(int index, CharSequence text, int iconResId, int rightEdgeIconResId) {
 		final TabView tabView = createTab(index);
+		if (!TextUtils.isEmpty(text)) {
+			tabView.setText(text);
+		}
 		if (iconResId != 0) {
 			tabView.setIcon(iconResId);
 		}
@@ -203,20 +215,40 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 
 	private class TabView extends RelativeLayout {
 		private int mIndex;
-		private ImageView ivTab;
 		private ImageView edgeIco;
+		private TextView tvTab;
+		private ImageView ivTab;
 		private static final int ID_TV_TAB = 0x7f000001;
+		private static final int ID_IV_TAB = 0x7f000002;
 
 		public TabView(Context context) {
 			super(context, null, 0);
 			int density = (int) getResources().getDisplayMetrics().density;
 			ivTab = new ImageView(context);
 			ivTab.setScaleType(ScaleType.FIT_CENTER);
-			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-					RelativeLayout.LayoutParams.WRAP_CONTENT);
-			ivTab.setId(ID_TV_TAB);
-			lp.addRule(RelativeLayout.CENTER_IN_PARENT);
+			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(Constant.MULTI_TAB_ICON_SIZE * density,
+					Constant.MULTI_TAB_ICON_SIZE * density);
+			ivTab.setId(ID_IV_TAB);
+			lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
 			this.addView(ivTab, lp);
+			tvTab = new TextView(context);
+			tvTab.setMaxLines(1);
+			tvTab.setEllipsize(TruncateAt.END);
+			tvTab.setGravity(Gravity.CENTER_HORIZONTAL);
+			lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+					RelativeLayout.LayoutParams.WRAP_CONTENT);
+			tvTab.setId(ID_TV_TAB);
+			Resources resource = context.getResources();
+			ColorStateList csl = (ColorStateList) resource
+					.getColorStateList(R.color.selector_homebottom_tab_text_color);
+			if (csl != null) {
+				tvTab.setTextColor(csl);
+			}
+			tvTab.setMaxEms(4);
+			tvTab.setPadding(3 * density, 3 * density, 3 * density, 3 * density);
+			lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
+			lp.addRule(RelativeLayout.BELOW, ivTab.getId());
+			this.addView(tvTab, lp);
 			lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
 					RelativeLayout.LayoutParams.WRAP_CONTENT);
 			lp.addRule(RelativeLayout.ALIGN_TOP, ivTab.getId());
@@ -241,8 +273,19 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			return mIndex;
 		}
 
+		public void setText(CharSequence text) {
+			tvTab.setText(text);
+		}
+
 		public void setIcon(int icResId) {
 			ivTab.setImageResource(icResId);
+		}
+
+		@Override
+		public void setSelected(boolean selected) {
+			super.setSelected(selected);
+			tvTab.setSelected(selected);
+			ivTab.setSelected(selected);
 		}
 
 		public void setRightEdgeIcon(int icResId) {

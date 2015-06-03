@@ -9,11 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HomeFragment extends BasePager.AbstractPagerFragment {
+public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_home, null);
+		View v = inflater.inflate(R.layout.fragment_order_center, null);
 		return v;
 	}
 
@@ -29,11 +29,11 @@ public class HomeFragment extends BasePager.AbstractPagerFragment {
 
 	@Override
 	public int getIconResId() {
-		return R.drawable.selector_homebottom_tab_homepage;
+		return R.drawable.selector_homebottom_tab_discount;
 	}
 
 	@Override
 	public String getPageTitle() {
-		return Constant.MULTI_TAB_HOME;
+		return Constant.MULTI_TAB_ORDER;
 	}
 }

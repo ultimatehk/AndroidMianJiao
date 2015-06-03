@@ -124,17 +124,19 @@ public class TopTitleBar extends RelativeLayout {
 				titleRightBtn = ta.getString(itemId);
 				break;
 			case R.styleable.TopTitleBar_title_color:
-				colorTitle = ta.getInteger(itemId, getColorFromResource(context, TITLE_TEXT_COLOR_DEFAULT));
+				colorTitle = ta.getInteger(itemId, CommonUtils.getColorFromResource(context, TITLE_TEXT_COLOR_DEFAULT));
 				break;
 			case R.styleable.TopTitleBar_right_btn_text_color:
-				colorRightText = ta.getInteger(itemId, getColorFromResource(context, RIGHT_TEXT_COLOR_DEFAULT));
+				colorRightText = ta.getInteger(itemId,
+						CommonUtils.getColorFromResource(context, RIGHT_TEXT_COLOR_DEFAULT));
 				break;
 			case R.styleable.TopTitleBar_right_btn_text_size:
 				btnRightTextSize = ta.getDimensionPixelSize(itemId, TEXT_SIZE_DEFAULT);
 				btnRightTextSize = CommonUtils.px2sp(context, btnRightTextSize);
 				break;
 			case R.styleable.TopTitleBar_left_btn_text_color:
-				colorLeftText = ta.getInteger(itemId, getColorFromResource(context, LEFT_TEXT_COLOR_DEFAULT));
+				colorLeftText = ta.getInteger(itemId,
+						CommonUtils.getColorFromResource(context, LEFT_TEXT_COLOR_DEFAULT));
 				break;
 			case R.styleable.TopTitleBar_left_btn_text_size:
 				btnLeftTextSize = ta.getDimensionPixelSize(itemId, TEXT_SIZE_DEFAULT);
@@ -145,7 +147,7 @@ public class TopTitleBar extends RelativeLayout {
 				titleTextSize = CommonUtils.px2sp(context, titleTextSize);
 				break;
 			case R.styleable.TopTitleBar_title_bar_bg:
-				bgColor = ta.getInteger(itemId, getColorFromResource(context, BG_COLOR_DEFAULT));
+				bgColor = ta.getInteger(itemId, CommonUtils.getColorFromResource(context, BG_COLOR_DEFAULT));
 				break;
 			}
 		}
@@ -158,12 +160,12 @@ public class TopTitleBar extends RelativeLayout {
 	 */
 	private void init() {
 		LayoutInflater.from(getContext()).inflate(R.layout.view_toptitle_bar, this);
-		setBackgroundColor(bgColor == 0 ? getColorFromResource(getContext(), BG_COLOR_DEFAULT) : bgColor);
+		setBackgroundColor(bgColor == 0 ? CommonUtils.getColorFromResource(getContext(), BG_COLOR_DEFAULT) : bgColor);
 		tvTitle = (TextView) findViewById(R.id.tvTitle);
 		topDividorLine = findViewById(R.id.topDividorLine);
 		topDividorLine.setVisibility(showDividorLine ? View.VISIBLE : View.INVISIBLE);
 		tvTitle.setText(TextUtils.isEmpty(topTitle) ? "" : topTitle);
-		tvTitle.setTextColor(colorTitle == 0 ? getColorFromResource(getContext(), TITLE_TEXT_COLOR_DEFAULT)
+		tvTitle.setTextColor(colorTitle == 0 ? CommonUtils.getColorFromResource(getContext(), TITLE_TEXT_COLOR_DEFAULT)
 				: colorTitle);
 		tvTitle.setTextSize(titleTextSize);
 		btnTopLeft = (TextView) findViewById(R.id.btnTopLeft);
@@ -176,8 +178,8 @@ public class TopTitleBar extends RelativeLayout {
 		if (drawableLeftBtn > 0) {
 			btnTopLeft.setCompoundDrawablesWithIntrinsicBounds(drawableLeftBtn, 0, 0, 0);
 		}
-		btnTopLeft.setTextColor(colorLeftText == 0 ? getColorFromResource(getContext(), LEFT_TEXT_COLOR_DEFAULT)
-				: colorLeftText);
+		btnTopLeft.setTextColor(colorLeftText == 0 ? CommonUtils.getColorFromResource(getContext(),
+				LEFT_TEXT_COLOR_DEFAULT) : colorLeftText);
 		btnTopLeft.setTextSize(btnLeftTextSize);
 
 		btnTopRight = (TextView) findViewById(R.id.btnTopRight);
@@ -190,17 +192,9 @@ public class TopTitleBar extends RelativeLayout {
 		if (drawableRightBtn > 0) {
 			btnTopRight.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableRightBtn, 0);
 		}
-		btnTopRight.setTextColor(colorRightText == 0 ? getColorFromResource(getContext(), RIGHT_TEXT_COLOR_DEFAULT)
-				: colorRightText);
+		btnTopRight.setTextColor(colorRightText == 0 ? CommonUtils.getColorFromResource(getContext(),
+				RIGHT_TEXT_COLOR_DEFAULT) : colorRightText);
 		btnTopRight.setTextSize(btnRightTextSize);
-	}
-
-	private int getColorFromResource(Context context, int rId) {
-		if (context == null) {
-			return 0;
-		} else {
-			return context.getResources().getColor(rId);
-		}
 	}
 
 	public void setTitle(String text) {
