@@ -9,8 +9,17 @@
         android:id="@+id/tvTest"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/btnScan"
         android:background="#ff0000"
         android:gravity="center"
         android:text="测试" />
+
+    <TextView
+        android:id="@+id/btnScan"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="扫描二维码" />
 
 </RelativeLayout>

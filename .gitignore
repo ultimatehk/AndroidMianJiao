@@ -2,4 +2,8 @@ MianXiao/.classpath
 MianXiao/bin
 MianXiao/project.properties
 MianXiao/gen
-MianXiao/.settings/org.eclipse.core.resources.prefs
+MianXiao/.settings
+ZXing/bin
+ZXing/.settings
+ZXing/project.properties
+ZXing/.classpath
