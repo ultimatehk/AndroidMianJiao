@@ -21,4 +21,16 @@
         <item name="android:background">@color/default_divide_line_bg</item>
     </style>
 
+    <style name="BaseHomeFragmentText">
+        <item name="android:textSize">@dimen/homefragment_text_size</item>
+    </style>
+
+    <style name="HomeFragmentDarkGrayText" parent="BaseHomeFragmentText">
+        <item name="android:textColor">@color/default_dark_gray</item>
+    </style>
+
+    <style name="HomeFragmentSelectTabText" parent="BaseHomeFragmentText">
+        <item name="android:textColor">@color/selector_homefragment_tab_text_color</item>
+    </style>
+
 </resources>

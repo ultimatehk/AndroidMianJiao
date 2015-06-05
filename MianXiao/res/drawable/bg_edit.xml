@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <stroke
+        android:width="@dimen/default_divide_line"
+        android:color="@color/default_divide_line_bg" />
+
+    <corners android:radius="@dimen/default_radio" />
+
+    <solid android:color="@color/default_white" />
+
+</shape>
