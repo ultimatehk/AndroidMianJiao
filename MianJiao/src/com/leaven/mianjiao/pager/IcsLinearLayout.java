@@ -1,4 +1,4 @@
-package com.leaven.mianxiao.pager;
+package com.leaven.mianjiao.pager;
 
 import android.content.Context;
 import android.content.res.TypedArray;

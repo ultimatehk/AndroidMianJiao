@@ -1,4 +1,4 @@
-package com.leaven.mianxiao.pager;
+package com.leaven.mianjiao.pager;
 
 /**
  * A PageIndicator is responsible to show an visual indicator on the total views

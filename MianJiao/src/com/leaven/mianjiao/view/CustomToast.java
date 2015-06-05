@@ -1,8 +1,8 @@
-package com.leaven.mianxiao.view;
+package com.leaven.mianjiao.view;
 
 import java.util.Calendar;
-import com.leaven.mianxiao.R;
-import com.leaven.mianxiao.tools.Constant;
+import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.tools.Constant;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;

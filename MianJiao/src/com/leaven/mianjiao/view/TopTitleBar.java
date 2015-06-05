@@ -1,7 +1,7 @@
-package com.leaven.mianxiao.view;
+package com.leaven.mianjiao.view;
 
-import com.leaven.mianxiao.R;
-import com.leaven.mianxiao.tools.CommonUtils;
+import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.tools.CommonUtils;
 
 import android.content.Context;
 import android.content.res.TypedArray;

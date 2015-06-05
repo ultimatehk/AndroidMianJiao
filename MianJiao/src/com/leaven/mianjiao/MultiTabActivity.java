@@ -1,13 +1,13 @@
-package com.leaven.mianxiao;
-
-import com.leaven.mianxiao.pager.MultiTabFragment;
-import com.leaven.mianxiao.tools.Constant;
+package com.leaven.mianjiao;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+
+import com.leaven.mianjiao.pager.MultiTabFragment;
+import com.leaven.mianjiao.tools.Constant;
 
 public class MultiTabActivity extends FragmentActivity {
 	private FragmentManager fragmentManager;

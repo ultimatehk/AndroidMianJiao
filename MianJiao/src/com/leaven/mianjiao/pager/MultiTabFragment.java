@@ -1,13 +1,13 @@
-package com.leaven.mianxiao.pager;
+package com.leaven.mianjiao.pager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.leaven.mianxiao.R;
-import com.leaven.mianxiao.fragment.HomeFragment;
-import com.leaven.mianxiao.fragment.OrderCenterFragment;
-import com.leaven.mianxiao.fragment.UserCenterFragment;
-import com.leaven.mianxiao.pager.BasePager.AbstractPagerFragment;
+import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.fragment.HomeFragment;
+import com.leaven.mianjiao.fragment.OrderCenterFragment;
+import com.leaven.mianjiao.fragment.UserCenterFragment;
+import com.leaven.mianjiao.pager.BasePager.AbstractPagerFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

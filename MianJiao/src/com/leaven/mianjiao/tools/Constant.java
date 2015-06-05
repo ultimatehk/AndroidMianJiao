@@ -1,4 +1,4 @@
-package com.leaven.mianxiao.tools;
+package com.leaven.mianjiao.tools;
 
 public class Constant {
 	/**

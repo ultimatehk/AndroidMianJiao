@@ -1,11 +1,11 @@
-package com.leaven.mianxiao;
+package com.leaven.mianjiao;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.dtr.zxing.activity.CaptureActivity;
 import com.google.zxing.Result;
-import com.leaven.mianxiao.view.CustomToast;
+import com.leaven.mianjiao.view.CustomToast;
 
 public class ScanActivity extends CaptureActivity implements CaptureActivity.OnDecodeCompleteListener {
 	@Override

@@ -1,8 +1,8 @@
-package com.leaven.mianxiao.fragment;
+package com.leaven.mianjiao.fragment;
 
-import com.leaven.mianxiao.R;
-import com.leaven.mianxiao.pager.BasePager;
-import com.leaven.mianxiao.tools.Constant;
+import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.pager.BasePager;
+import com.leaven.mianjiao.tools.Constant;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

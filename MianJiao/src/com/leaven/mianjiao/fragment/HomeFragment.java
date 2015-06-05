@@ -1,4 +1,4 @@
-package com.leaven.mianxiao.fragment;
+package com.leaven.mianjiao.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,12 +11,12 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.leaven.mianxiao.R;
-import com.leaven.mianxiao.ScanActivity;
-import com.leaven.mianxiao.pager.BasePager;
-import com.leaven.mianxiao.tools.CommonUtils;
-import com.leaven.mianxiao.tools.Constant;
-import com.leaven.mianxiao.view.CustomToast;
+import com.leaven.mianjiao.ScanActivity;
+import com.leaven.mianjiao.tools.CommonUtils;
+import com.leaven.mianjiao.tools.Constant;
+import com.leaven.mianjiao.view.CustomToast;
+import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.pager.BasePager;
 
 public class HomeFragment extends BasePager.AbstractPagerFragment implements View.OnClickListener {
 

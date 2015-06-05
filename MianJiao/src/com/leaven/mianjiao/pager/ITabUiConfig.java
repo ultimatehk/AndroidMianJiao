@@ -1,4 +1,4 @@
-package com.leaven.mianxiao.pager;
+package com.leaven.mianjiao.pager;
 
 public interface ITabUiConfig {
 

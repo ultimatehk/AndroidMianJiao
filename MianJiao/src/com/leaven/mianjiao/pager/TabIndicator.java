@@ -1,9 +1,9 @@
-package com.leaven.mianxiao.pager;
+package com.leaven.mianjiao.pager;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
-import com.leaven.mianxiao.R;
-import com.leaven.mianxiao.tools.Constant;
+import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.tools.Constant;
 
 import android.content.Context;
 import android.content.res.ColorStateList;

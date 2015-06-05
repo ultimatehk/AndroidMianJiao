@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/com.leaven.mianxiao"
+    xmlns:app="http://schemas.android.com/apk/res/com.leaven.mianjiao"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.leaven.mianxiao.view.TopTitleBar
+    <com.leaven.mianjiao.view.TopTitleBar
         android:id="@+id/topTitleBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_bar_height"
         app:title="@string/app_name" />
 
-    <com.leaven.mianxiao.pager.BasePager
+    <com.leaven.mianjiao.pager.BasePager
         android:id="@+id/basePager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_above="@+id/tabIndicator" />
 
-    <com.leaven.mianxiao.pager.TabIndicator
+    <com.leaven.mianjiao.pager.TabIndicator
         android:id="@+id/tabIndicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
