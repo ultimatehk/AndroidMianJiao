@@ -227,7 +227,7 @@ public class CommonUtils {
 		// 如果需要绑定账号，请使用registerPush(getApplicationContext(),account)版本
 		// 具体可参考详细的开发指南
 		// 传递的参数为ApplicationContext
-		XGPushManager.unregisterPush(context.getApplicationContext());
+		// XGPushManager.unregisterPush(context.getApplicationContext());
 		XGPushManager.registerPush(context.getApplicationContext(), new XGIOperateCallback() {
 
 			@Override
