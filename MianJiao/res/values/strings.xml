@@ -2,8 +2,12 @@
 <resources>
 
     <string name="app_name">面酵</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="backbtn_blank_text">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="about_us">关于我们</string>
+    <string name="user_info">个人信息</string>
+    <string name="my_red_packet">我的红包</string>
+    <string name="delivery_address">收货地址</string>
+    <string name="order_history">历史订单</string>
+    <string name="good_reputation">跪求好评</string>
 
 </resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/tvHeadLineTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:singleLine="true" />
+
+    <View
+        android:id="@+id/topDividorLine"
+        style="@style/DefaultHorizontalDivideLine"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true" />
+
+</merge>

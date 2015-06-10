@@ -34,5 +34,14 @@
         <!-- 是否显示分割线,默认为显示 -->
         <attr name="show_dividor_line" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="HeadLineTitle">
+
+        <!-- 标题栏的标题 -->
+        <attr name="headline_title" format="string" />
+        <!-- 标题栏文案颜色,默认为default_blue -->
+        <attr name="headline_text_color" format="integer" />
+        <!-- 标题栏文案字体大小,默认为16sp -->
+        <attr name="headline_text_size" format="dimension" />
+    </declare-styleable>
 
 </resources>

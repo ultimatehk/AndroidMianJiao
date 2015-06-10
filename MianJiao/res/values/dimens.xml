@@ -12,6 +12,8 @@
     <!-- titleBar -->
     <dimen name="title_bar_height">46dp</dimen>
     <dimen name="title_bar_horizontal_padding">12dp</dimen>
+    <!-- headLine -->
+    <dimen name="head_line_height">41dp</dimen>
     <!-- toast -->
     <dimen name="toast_text_size">16sp</dimen>
     <dimen name="toast_margin">15dp</dimen>
