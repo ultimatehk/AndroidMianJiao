@@ -47,8 +47,6 @@
     <uses-permission android:name="android.permission.READ_LOGS" >
     </uses-permission>
     <!-- ============================================================================================ -->
-    
-    
 
     <application
         android:allowBackup="true"
@@ -75,12 +73,13 @@
         <!-- ========================================百度定位SDK相关配置====================================== -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="OwG9wSLWOcMiDfz4Vtfi0Egx" />       
-        
-        
-        
-        
-        
+            android:value="OwG9wSLWOcMiDfz4Vtfi0Egx" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
         
     </application>
 
