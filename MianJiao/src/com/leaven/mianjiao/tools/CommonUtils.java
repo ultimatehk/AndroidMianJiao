@@ -5,6 +5,10 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.tencent.android.tpush.XGIOperateCallback;
+import com.tencent.android.tpush.XGPushConfig;
+import com.tencent.android.tpush.XGPushManager;
+
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -209,6 +213,33 @@ public class CommonUtils {
 		} else {
 			return context.getResources().getColor(rId);
 		}
+	}
+
+	/**
+	 * 注册信鸽推送
+	 * 
+	 * @param context
+	 */
+	public static void initXGPush(Context context) {
+		// 开启logcat输出，方便debug，发布时请关闭
+		XGPushConfig.enableDebug(context, true);
+		// 如果需要知道注册是否成功，请使用registerPush(getApplicationContext(), XGIOperateCallback)带callback版本
+		// 如果需要绑定账号，请使用registerPush(getApplicationContext(),account)版本
+		// 具体可参考详细的开发指南
+		// 传递的参数为ApplicationContext
+		XGPushManager.unregisterPush(context.getApplicationContext());
+		XGPushManager.registerPush(context.getApplicationContext(), new XGIOperateCallback() {
+
+			@Override
+			public void onSuccess(Object data, int flag) {
+				System.out.println("注册成功，设备token为：" + data);
+			}
+
+			@Override
+			public void onFail(Object data, int errCode, String msg) {
+				System.out.println("注册失败，错误码：" + errCode + ",错误信息：" + msg);
+			}
+		});
 	}
 
 }

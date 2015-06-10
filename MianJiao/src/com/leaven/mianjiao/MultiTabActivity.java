@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.leaven.mianjiao.pager.MultiTabFragment;
+import com.leaven.mianjiao.tools.CommonUtils;
 import com.leaven.mianjiao.tools.Constant;
 
 public class MultiTabActivity extends FragmentActivity {
@@ -20,6 +21,7 @@ public class MultiTabActivity extends FragmentActivity {
 		setContentView(R.layout.activity_multi_tab);
 		// TODO WebView的Cookie通用
 		// CookieSyncManager.createInstance(this);
+		CommonUtils.initXGPush(this);
 		fragmentManager = getSupportFragmentManager();
 		FragmentTransaction transaction = fragmentManager.beginTransaction();
 		multiTabFragment = new MultiTabFragment();
