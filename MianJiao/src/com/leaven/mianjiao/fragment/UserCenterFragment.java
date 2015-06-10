@@ -6,6 +6,9 @@ import com.leaven.mianjiao.tools.Constant;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +19,17 @@ public class UserCenterFragment extends BasePager.AbstractPagerFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_user_center, null);
+		if (getActivity() instanceof FragmentActivity) {
+			FragmentManager fm = ((FragmentActivity) getActivity()).getSupportFragmentManager();
+			FragmentTransaction ft = fm.beginTransaction();
+			ft.add(R.id.userInfoContainer, new UserInfoFragment());
+			ft.add(R.id.redPacketContainer, new RedPacketFragment());
+			ft.add(R.id.deliveryAddressContainer, new DeliveryAddressFragment());
+			ft.add(R.id.orderHistoryContainer, new OrderHistoryFragment());
+			ft.add(R.id.goodReputationContainer, new GoodReputationFragment());
+			ft.add(R.id.aboutUsContainer, new AboutUsFragment());
+			ft.commit();
+		}
 		return v;
 	}
 
