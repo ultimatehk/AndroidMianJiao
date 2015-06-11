@@ -3,7 +3,7 @@ package com.leaven.mianjiao.fragment;
 import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.pager.BasePager;
 import com.leaven.mianjiao.tools.Constant;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +17,7 @@ public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 		super.TAG = TAG;
 	}
 
+	@SuppressLint("InflateParams")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_order_center, null);
