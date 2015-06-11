@@ -8,6 +8,7 @@ import java.util.Map;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
+import com.umeng.analytics.MobclickAgent;
 
 import android.content.Context;
 import android.view.View;
@@ -240,6 +241,26 @@ public class CommonUtils {
 				System.out.println("注册失败，错误码：" + errCode + ",错误信息：" + msg);
 			}
 		});
+	}
+
+	/**
+	 * 注册友盟统计
+	 * 
+	 * @param context
+	 */
+	public static void initUmeng(Context context) {
+		/**
+		 * 发送策略
+		 */
+		MobclickAgent.updateOnlineConfig(context);
+		/**
+		 * 如果您不使用集成测试服务来测试数据，那您可以通过普通测试流程查看测试数据。 使用普通测试流程，您的测试数据会与用户的真实使用数据同时处理，从而导致数据污染。
+		 */
+		MobclickAgent.setDebugMode(true);
+		/**
+		 * 禁止默认的页面统计方式，这样将不会再自动统计Activity。
+		 */
+		MobclickAgent.openActivityDurationTrack(false);
 	}
 
 }

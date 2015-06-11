@@ -20,11 +20,17 @@ import com.leaven.mianjiao.pager.BasePager;
 
 public class HomeFragment extends BasePager.AbstractPagerFragment implements View.OnClickListener {
 
+	private static String TAG = "首页";
 	private View btnScan;
 	private View btnLocation;
 	private View btnDistance;
 	private View btnPrice;
 	private EditText edtSearch;
+
+	public HomeFragment() {
+		super();
+		super.TAG = TAG;
+	}
 
 	@SuppressLint("InflateParams")
 	@Override
@@ -81,6 +87,7 @@ public class HomeFragment extends BasePager.AbstractPagerFragment implements Vie
 
 	@Override
 	public void onSelected() {
+		super.onSelected();
 		// TODO 选择
 	}
 

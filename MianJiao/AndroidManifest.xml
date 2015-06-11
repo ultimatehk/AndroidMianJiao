@@ -59,6 +59,12 @@
     <!-- 允许应用读取低级别的系统日志文件 -->
     <uses-permission android:name="android.permission.READ_LOGS" />
     <!-- ===================================百度定位SDK相关权限结束======================================= -->
+    <!-- ===================================友盟统计SDK相关权限开始======================================= -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- ===================================友盟统计SDK相关权限结束======================================= -->
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -157,6 +163,14 @@
             android:name="XG_V2_ACCESS_KEY"
             android:value="A44M64M6FEGM" />
         <!-- ========================================信鸽SDK相关配置结束====================================== -->
+        <!-- ========================================友盟统计SDK相关配置开始====================================== -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="557931b667e58e5c3900152d" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" />
+        <!-- ========================================友盟统计SDK相关配置结束====================================== -->
     </application>
 
 </manifest>

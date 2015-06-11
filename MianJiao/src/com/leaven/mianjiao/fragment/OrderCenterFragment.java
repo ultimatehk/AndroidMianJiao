@@ -10,6 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
+	private static String TAG = "订单中心";
+
+	public OrderCenterFragment() {
+		super();
+		super.TAG = TAG;
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -17,8 +23,10 @@ public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 		return v;
 	}
 
+
 	@Override
 	public void onSelected() {
+		super.onSelected();
 		// TODO 选择
 	}
 

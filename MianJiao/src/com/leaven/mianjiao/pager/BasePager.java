@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.RelativeLayout;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class BasePager extends RelativeLayout {
 	private List<? extends AbstractPagerFragment> mPagerFragments;
 	private int mCurrentItemIndex = 0;
@@ -102,6 +104,7 @@ public class BasePager extends RelativeLayout {
 	public static class AbstractPagerFragment extends Fragment implements ITabUiConfig {
 
 		protected TabIndicator mTabIndicator;
+		protected String TAG;
 
 		public AbstractPagerFragment() {
 			super();
@@ -115,9 +118,11 @@ public class BasePager extends RelativeLayout {
 		 * 当前fragment被选中
 		 */
 		public void onSelected() {
+			MobclickAgent.onPageStart(TAG);
 		};
 
 		public void onSelected(Bundle extras) {
+			MobclickAgent.onPageStart(TAG);
 		};
 
 		/**
@@ -125,6 +130,13 @@ public class BasePager extends RelativeLayout {
 		 */
 		public void onReSelected() {
 		};
+
+		/**
+		 * 当前Fragment失去选中状态，为了记录页面访问
+		 */
+		public void onLoseSelected() {
+			MobclickAgent.onPageEnd(TAG);
+		}
 
 		/**
 		 * 返回对应的tab icon

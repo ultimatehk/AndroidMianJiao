@@ -41,6 +41,7 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			if (oldSelected == newSelected) {
 				mBasePager.getItem(newSelected).onReSelected();
 			} else {
+				mBasePager.getItem(oldSelected).onLoseSelected();
 				setCurrentItem(newSelected);
 			}
 		}

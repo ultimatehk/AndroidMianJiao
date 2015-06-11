@@ -15,6 +15,13 @@ import android.view.ViewGroup;
 
 public class UserCenterFragment extends BasePager.AbstractPagerFragment {
 
+	private static String TAG = "个人中心";
+
+	public UserCenterFragment() {
+		super();
+		super.TAG = TAG;
+	}
+
 	@SuppressLint("InflateParams")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,6 +42,7 @@ public class UserCenterFragment extends BasePager.AbstractPagerFragment {
 
 	@Override
 	public void onSelected() {
+		super.onSelected();
 		// TODO 选择
 	}
 
