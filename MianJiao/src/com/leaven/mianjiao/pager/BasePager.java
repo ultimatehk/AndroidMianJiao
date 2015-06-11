@@ -13,8 +13,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.RelativeLayout;
 
-import com.umeng.analytics.MobclickAgent;
-
 public class BasePager extends RelativeLayout {
 	private List<? extends AbstractPagerFragment> mPagerFragments;
 	private int mCurrentItemIndex = 0;
@@ -118,24 +116,15 @@ public class BasePager extends RelativeLayout {
 		 * 当前fragment被选中
 		 */
 		public void onSelected() {
-			MobclickAgent.onPageStart(TAG);
-		};
+		}
 
 		public void onSelected(Bundle extras) {
-			MobclickAgent.onPageStart(TAG);
-		};
+		}
 
 		/**
 		 * 当前fragment被重新选中
 		 */
 		public void onReSelected() {
-		};
-
-		/**
-		 * 当前Fragment失去选中状态，为了记录页面访问
-		 */
-		public void onLoseSelected() {
-			MobclickAgent.onPageEnd(TAG);
 		}
 
 		/**
@@ -145,16 +134,16 @@ public class BasePager extends RelativeLayout {
 		 */
 		public int getIconResId() {
 			return 0;
-		};
+		}
 
 		@Override
 		public int getRightEdgeIconResId() {
 			return 0;
-		};
+		}
 
 		public String getPageTitle() {
 			return "";
-		};
+		}
 
 		public void hideSoftInputFromWindow() {
 			if (getActivity() == null) {
