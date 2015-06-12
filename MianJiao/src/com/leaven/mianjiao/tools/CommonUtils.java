@@ -256,11 +256,12 @@ public class CommonUtils {
 		/**
 		 * 如果您不使用集成测试服务来测试数据，那您可以通过普通测试流程查看测试数据。 使用普通测试流程，您的测试数据会与用户的真实使用数据同时处理，从而导致数据污染。
 		 */
-		MobclickAgent.setDebugMode(true);
+		MobclickAgent.setDebugMode(false);
 		/**
 		 * 禁止默认的页面统计方式，这样将不会再自动统计Activity。
 		 */
-		// MobclickAgent.openActivityDurationTrack(false);
+		MobclickAgent.openActivityDurationTrack(false);
+		MobclickAgent.setCatchUncaughtExceptions(true);
 	}
 
 }
