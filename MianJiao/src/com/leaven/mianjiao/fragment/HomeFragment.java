@@ -1,20 +1,14 @@
 package com.leaven.mianjiao.fragment;
 
-import java.util.ArrayList;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.leaven.mianjiao.R;
@@ -23,10 +17,8 @@ import com.leaven.mianjiao.pager.BasePager;
 import com.leaven.mianjiao.tools.CommonUtils;
 import com.leaven.mianjiao.tools.Constant;
 import com.leaven.mianjiao.view.CustomToast;
-import com.leaven.mianjiao.view.SwipeRefreshListView;
 
-public class HomeFragment extends BasePager.AbstractPagerFragment implements View.OnClickListener,
-		SwipeRefreshLayout.OnRefreshListener {
+public class HomeFragment extends BasePager.AbstractPagerFragment implements View.OnClickListener {
 
 	private static String TAG = "首页";
 	private View btnScan;
@@ -34,8 +26,6 @@ public class HomeFragment extends BasePager.AbstractPagerFragment implements Vie
 	private View btnDistance;
 	private View btnPrice;
 	private EditText edtSearch;
-	private SwipeRefreshListView swipeRefreshLayout;
-	private ListView lvGoods;
 
 	public HomeFragment() {
 		super();
@@ -72,12 +62,7 @@ public class HomeFragment extends BasePager.AbstractPagerFragment implements Vie
 				return false;
 			}
 		});
-		if (layout instanceof ViewGroup) {
-			swipeRefreshLayout = new SwipeRefreshListView(getActivity());
-			((ViewGroup) layout).addView(swipeRefreshLayout);
-			lvGoods = swipeRefreshLayout.getListView();
-			swipeRefreshLayout.setOnRefreshListener(this);
-		}
+		getFragmentManager().beginTransaction().add(R.id.swipeRefreshLayout, new SwipeRefreshListFragment()).commit();
 		initViewState();
 	}
 
@@ -138,49 +123,5 @@ public class HomeFragment extends BasePager.AbstractPagerFragment implements Vie
 			switchTabState(v.getId() == R.id.btnDistance);
 			break;
 		}
-	}
-
-	@Override
-	public void onRefresh() {
-		// TODO Auto-generated method stub
-		if (swipeRefreshLayout != null)
-			swipeRefreshLayout.setRefreshing(true);
-		new DummyBackgroundTask().execute();
-	}
-
-	private class DummyBackgroundTask extends AsyncTask<Void, Void, ArrayList<String>> {
-		static final int TASK_DURATION = 4 * 1000; // 3 seconds
-
-		@Override
-		protected ArrayList<String> doInBackground(Void... params) {
-			try {
-				Thread.sleep(TASK_DURATION);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			return getList("更新完成");
-		}
-
-		@Override
-		protected void onPostExecute(ArrayList<String> result) {
-			super.onPostExecute(result);
-			onRefreshComplete(result);
-		}
-	}
-
-	private void onRefreshComplete(ArrayList<String> result) {
-		if (lvGoods != null)
-			lvGoods.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,
-					android.R.id.text1, result));
-		if (swipeRefreshLayout != null)
-			swipeRefreshLayout.setRefreshing(false);
-	}
-
-	public ArrayList<String> getList(String str) {
-		ArrayList<String> list = new ArrayList<String>();
-		for (int i = 0; i < 50; i++) {
-			list.add(str + i);
-		}
-		return list;
 	}
 }
