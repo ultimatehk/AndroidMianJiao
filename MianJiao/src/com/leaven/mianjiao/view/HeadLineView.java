@@ -64,6 +64,7 @@ public class HeadLineView extends RelativeLayout {
 	private TextView tvHeadLineTitle;
 
 	private void init() {
+		setBackgroundResource(R.color.default_white);
 		LayoutInflater.from(getContext()).inflate(R.layout.view_headline, this);
 		tvHeadLineTitle = (TextView) findViewById(R.id.tvHeadLineTitle);
 		tvHeadLineTitle.setText(TextUtils.isEmpty(titleStr) ? "" : titleStr);
