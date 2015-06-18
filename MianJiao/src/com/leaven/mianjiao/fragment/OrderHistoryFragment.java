@@ -1,8 +1,11 @@
 package com.leaven.mianjiao.fragment;
 
 import java.util.ArrayList;
+
 import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.tools.CommonUtils;
 import com.leaven.mianjiao.view.HeadLineView;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,16 +17,18 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-public class OrderHistoryFragment extends Fragment {
+public class OrderHistoryFragment extends Fragment implements View.OnClickListener {
 	private HeadLineView headLineLayout;
 	private ViewGroup layout;
+	private ListView lvList;
 
 	@SuppressLint("InflateParams")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		layout = (ViewGroup) inflater.inflate(R.layout.fragment_order_history, null);
 		headLineLayout = (HeadLineView) layout.findViewById(R.id.headLineLayout);
-		ListView lvList = (ListView) layout.findViewById(R.id.lvList);
+		headLineLayout.setOnClickListener(this);
+		lvList = (ListView) layout.findViewById(R.id.lvList);
 		ListAdapter adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,
 				android.R.id.text1, getList("初始化"));
 		lvList.setAdapter(adapter);
@@ -39,6 +44,18 @@ public class OrderHistoryFragment extends Fragment {
 			list.add(str + i);
 		}
 		return list;
+	}
+
+	@Override
+	public void onClick(View v) {
+		CommonUtils.hideSoftInputFromWindow(v);
+		switch (v.getId()) {
+		case R.id.headLineLayout:
+			lvList.setVisibility(lvList.isShown() ? View.GONE : View.VISIBLE);
+			break;
+		default:
+			break;
+		}
 	}
 
 	/**
