@@ -77,7 +77,7 @@ public class UserCenterFragment extends BasePager.AbstractPagerFragment implemen
 
 	@Override
 	public int getIconResId() {
-		return R.drawable.selector_homebottom_tab_usercenter;
+		return R.drawable.selector_homebottom_tab_user;
 	}
 
 	@Override

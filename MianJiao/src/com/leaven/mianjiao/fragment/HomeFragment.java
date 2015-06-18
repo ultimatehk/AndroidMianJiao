@@ -99,7 +99,7 @@ public class HomeFragment extends BasePager.AbstractPagerFragment implements Vie
 
 	@Override
 	public int getIconResId() {
-		return R.drawable.selector_homebottom_tab_homepage;
+		return R.drawable.selector_homebottom_tab_home;
 	}
 
 	@Override

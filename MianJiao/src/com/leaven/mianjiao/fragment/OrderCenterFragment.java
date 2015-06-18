@@ -38,7 +38,7 @@ public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 
 	@Override
 	public int getIconResId() {
-		return R.drawable.selector_homebottom_tab_discount;
+		return R.drawable.selector_homebottom_tab_order;
 	}
 
 	@Override
