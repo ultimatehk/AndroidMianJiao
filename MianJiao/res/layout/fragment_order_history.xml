@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res/com.leaven.mianjiao"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
+
+    <ListView
+        android:id="@+id/lvList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/head_line_height" >
+    </ListView>
 
     <com.leaven.mianjiao.view.HeadLineView
+        android:id="@+id/headLineLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/head_line_height"
         app:headline_title="@string/order_history" />
 
-</LinearLayout>
+</RelativeLayout>
