@@ -8,11 +8,14 @@ import android.support.v4.app.FragmentTransaction;
 import com.leaven.mianjiao.pager.MultiTabFragment;
 import com.leaven.mianjiao.tools.CommonUtils;
 import com.leaven.mianjiao.tools.Constant;
+import com.leaven.mianjiao.view.CustomToast;
 
 public class MultiTabActivity extends BaseActivity {
 	private FragmentManager fragmentManager;
 	private MultiTabFragment multiTabFragment;
 	public static final String KEY_TAB_INDEX = "tab_index";
+
+	private long exitTime;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -53,11 +56,15 @@ public class MultiTabActivity extends BaseActivity {
 		}
 
 	}
-	
+
 	@Override
 	public void finish() {
-		// TODO Auto-generated method stub
-		super.finish();
+		if ((System.currentTimeMillis() - exitTime) > 2000) {
+			CustomToast.showToast(this, R.string.press_again_finish);
+			exitTime = System.currentTimeMillis();
+		} else {
+			super.finish();
+		}
 	}
 	// private void checkUpdate() {
 	//
