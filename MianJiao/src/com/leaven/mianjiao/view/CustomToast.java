@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class CustomToast {
 	private static long lastShowTime;
+	private static String lastMsg;
 
 	@SuppressLint("InflateParams")
 	private static Toast makeText(Context context, int gravity, String msg, int duration) {
@@ -67,8 +68,10 @@ public class CustomToast {
 		if (toast == null) {
 			return;
 		}
-		if (lastShowTime + showTime < Calendar.getInstance().getTimeInMillis()) {
+		if (TextUtils.isEmpty(lastMsg) || !lastMsg.equals(msg)
+				|| lastShowTime + showTime < Calendar.getInstance().getTimeInMillis()) {
 			toast.show();
+			lastMsg = msg;
 			lastShowTime = Calendar.getInstance().getTimeInMillis();
 		} else {
 			toast.cancel();
