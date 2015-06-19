@@ -17,22 +17,26 @@
             <RelativeLayout
                 android:id="@+id/userInfoContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants" />
 
             <RelativeLayout
                 android:id="@+id/redPacketContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants" />
 
             <RelativeLayout
                 android:id="@+id/aboutUsContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants" />
 
             <RelativeLayout
                 android:id="@+id/orderHistoryContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants" />
         </LinearLayout>
     </com.leaven.mianjiao.view.PinnedHeaderScrollView>
 
