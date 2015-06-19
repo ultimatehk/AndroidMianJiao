@@ -44,6 +44,21 @@ public class MultiTabActivity extends BaseActivity {
 		}
 	}
 
+	@Override
+	public void onBackPressed() {
+		if (multiTabFragment.canFinish()) {
+			super.onBackPressed();
+		} else {
+			multiTabFragment.goBack();
+		}
+
+	}
+	
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
 	// private void checkUpdate() {
 	//
 	// NetCon.getInstance(MultiTabActivity.this).checkUpdate("android", QfqMeta.getVersionName(MultiTabActivity.this),

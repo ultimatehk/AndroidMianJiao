@@ -9,21 +9,14 @@ import android.view.ViewGroup;
 import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.pager.BaseHomeFragment;
 
-public class HomeFragment extends BaseHomeFragment implements View.OnClickListener {
-	private static String TAG = "HomeFragment";
+public class MoreBusinessesFragment extends BaseHomeFragment {
+	private static String TAG = "MoreBusinessesFragment";
 
 	@SuppressLint("InflateParams")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_home, null);
-		v.findViewById(R.id.btnOpenSearchFragment).setOnClickListener(this);
-		initView(v);
+		View v = inflater.inflate(R.layout.fragment_order_center, null);
 		return v;
-	}
-
-	private void initView(View layout) {
-		// getFragmentManager().beginTransaction().add(R.id.swipeRefreshLayout, new
-		// SwipeRefreshListFragment()).commit();
 	}
 
 	@Override
@@ -34,10 +27,5 @@ public class HomeFragment extends BaseHomeFragment implements View.OnClickListen
 	@Override
 	public boolean isWithSearchFragment() {
 		return true;
-	}
-
-	@Override
-	public void onClick(View v) {
-		openFragment(new MoreBusinessesFragment());
 	}
 }

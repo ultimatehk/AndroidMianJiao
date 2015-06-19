@@ -110,6 +110,14 @@ public class BasePager extends RelativeLayout {
 			super();
 		}
 
+		protected boolean canFinish() {
+			return true;
+		}
+
+		protected void goBack() {
+			getActivity().finish();
+		}
+
 		protected void setTabIndicator(TabIndicator mTabIndicator) {
 			this.mTabIndicator = mTabIndicator;
 		}
