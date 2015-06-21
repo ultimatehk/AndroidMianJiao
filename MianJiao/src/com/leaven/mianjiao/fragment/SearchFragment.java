@@ -1,5 +1,6 @@
 package com.leaven.mianjiao.fragment;
 
+import com.leaven.mianjiao.MapActivity;
 import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.ScanActivity;
 import com.leaven.mianjiao.tools.CommonUtils;
@@ -88,6 +89,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 			break;
 		case R.id.btnLocation:
 			// TODO 位置定位页面
+			Intent it2 = new Intent(getActivity(), MapActivity.class);
+			getActivity().startActivity(it2);
 			break;
 		case R.id.btnDistance:
 		case R.id.btnPrice:

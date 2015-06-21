@@ -5,14 +5,15 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.content.Context;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+
+import com.baidu.mapapi.SDKInitializer;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
 import com.umeng.analytics.MobclickAgent;
-
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
 /**
  * 一系列工具类
@@ -263,5 +264,12 @@ public class CommonUtils {
 		MobclickAgent.openActivityDurationTrack(false);
 		MobclickAgent.setCatchUncaughtExceptions(true);
 	}
-
+	
+	/**
+	 * 初始化百度地图
+	 * 
+	 */
+	public static void initBaiduMap(Context context) {
+		SDKInitializer.initialize(context.getApplicationContext());  
+	}
 }
