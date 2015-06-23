@@ -141,7 +141,7 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 		tabView.setTag(tabView);
 		DisplayMetrics dm = getResources().getDisplayMetrics();
 		LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
-		mTabLayout.setPadding(0, (int) (10 * dm.density), 0, (int) (5 * dm.density));
+		mTabLayout.setPadding(0, (int) (10 * dm.density), 0, (int) (10 * dm.density));
 		mTabLayout.addView(tabView, p);
 	}
 
@@ -227,8 +227,8 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			int density = (int) getResources().getDisplayMetrics().density;
 			ivTab = new ImageView(context);
 			ivTab.setScaleType(ScaleType.FIT_CENTER);
-			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(Constant.MULTI_TAB_ICON_SIZE * density,
-					Constant.MULTI_TAB_ICON_SIZE * density);
+			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(Constant.MULTI_TAB_ICON_WIDTH * density,
+					Constant.MULTI_TAB_ICON_HEIGHT * density);
 			ivTab.setId(ID_IV_TAB);
 			lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
 			this.addView(ivTab, lp);
@@ -245,8 +245,9 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			if (csl != null) {
 				tvTab.setTextColor(csl);
 			}
+			tvTab.setTextSize(10);
 			tvTab.setMaxEms(4);
-			tvTab.setPadding(3 * density, 3 * density, 3 * density, 3 * density);
+			tvTab.setPadding(0, 2 * density, 0, 0);
 			lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
 			lp.addRule(RelativeLayout.BELOW, ivTab.getId());
 			this.addView(tvTab, lp);
