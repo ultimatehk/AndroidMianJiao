@@ -14,6 +14,10 @@ public class Constant {
 	 */
 	public static int MULTI_TAB_ICON_HEIGHT = 20;
 	/**
+	 * Tab字体大小
+	 */
+	public static int MULTI_TAB_TEXT_SIZE = 11;
+	/**
 	 * Tab首页的文案
 	 */
 	public static String MULTI_TAB_HOME = "面酵";

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <solid android:color="@color/default_more_light_blue" />
+
+    <size
+        android:height="@dimen/searchfragment_text_size"
+        android:width="@dimen/default_divide_line" />
+
+</shape>

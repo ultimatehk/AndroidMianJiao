@@ -22,8 +22,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 
 	private View btnScan;
 	private View btnLocation;
-	private View btnDistance;
-	private View btnPrice;
+	private TextView btnSearchTabLeft, btnSearchTabRight;
 	private EditText edtSearch;
 
 	@SuppressLint("InflateParams")
@@ -39,10 +38,10 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 		btnScan.setOnClickListener(this);
 		btnLocation = layout.findViewById(R.id.btnLocation);
 		btnLocation.setOnClickListener(this);
-		btnDistance = layout.findViewById(R.id.btnDistance);
-		btnDistance.setOnClickListener(this);
-		btnPrice = layout.findViewById(R.id.btnPrice);
-		btnPrice.setOnClickListener(this);
+		btnSearchTabLeft = (TextView) layout.findViewById(R.id.btnSearchTabLeft);
+		btnSearchTabLeft.setOnClickListener(this);
+		btnSearchTabRight = (TextView) layout.findViewById(R.id.btnSearchTabRight);
+		btnSearchTabRight.setOnClickListener(this);
 		edtSearch = (EditText) layout.findViewById(R.id.edtSearch);
 		edtSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
@@ -66,13 +65,13 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 	/**
 	 * 切换点击最近距离以及最低价格
 	 * 
-	 * @param isDistanceTab
-	 *            是否是最近距离标签
+	 * @param isLeftTab
+	 *            是否是左边标签
 	 */
-	private void switchTabState(boolean isDistanceTab) {
-		btnDistance.setSelected(isDistanceTab);
-		btnPrice.setSelected(!isDistanceTab);
-		if (isDistanceTab) {
+	private void switchTabState(boolean isLeftTab) {
+		btnSearchTabLeft.setSelected(isLeftTab);
+		btnSearchTabRight.setSelected(!isLeftTab);
+		if (isLeftTab) {
 			// TODO 最近距离请求数据，显示界面
 		} else {
 			// TODO 最近距离请求数据，显示界面
@@ -92,10 +91,21 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 			Intent it2 = new Intent(getActivity(), MapActivity.class);
 			getActivity().startActivity(it2);
 			break;
-		case R.id.btnDistance:
-		case R.id.btnPrice:
-			switchTabState(v.getId() == R.id.btnDistance);
+		case R.id.btnSearchTabLeft:
+		case R.id.btnSearchTabRight:
+			switchTabState(v.getId() == R.id.btnSearchTabLeft);
 			break;
 		}
+	}
+
+	/**
+	 * 设置搜索的Tab文案
+	 * 
+	 * @param isAfterSearch
+	 *            boolean 是否是搜索后的
+	 */
+	public void setAfterSearchTabText(boolean isAfterSearch) {
+		btnSearchTabLeft.setText(isAfterSearch ? R.string.nearest_distance : R.string.business_recommendatio);
+		btnSearchTabRight.setText(isAfterSearch ? R.string.cheapest_price : R.string.recent_update);
 	}
 }

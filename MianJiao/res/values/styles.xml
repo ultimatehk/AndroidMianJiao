@@ -21,15 +21,15 @@
         <item name="android:background">@color/default_light_divide_line</item>
     </style>
 
-    <style name="BaseHomeFragmentText">
-        <item name="android:textSize">@dimen/homefragment_text_size</item>
+    <style name="BaseSearchFragmentText">
+        <item name="android:textSize">@dimen/searchfragment_text_size</item>
     </style>
 
-    <style name="HomeFragmentDarkGrayText" parent="BaseHomeFragmentText">
+    <style name="SearchFragmentDarkGrayText" parent="BaseSearchFragmentText">
         <item name="android:textColor">@color/default_dark_gray</item>
     </style>
 
-    <style name="HomeFragmentSelectTabText" parent="BaseHomeFragmentText">
+    <style name="SearchFragmentSelectTabText" parent="BaseSearchFragmentText">
         <item name="android:textColor">@color/selector_homefragment_tab_text_color</item>
     </style>
 

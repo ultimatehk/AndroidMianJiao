@@ -245,7 +245,7 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			if (csl != null) {
 				tvTab.setTextColor(csl);
 			}
-			tvTab.setTextSize(10);
+			tvTab.setTextSize(Constant.MULTI_TAB_TEXT_SIZE);
 			tvTab.setMaxEms(4);
 			tvTab.setPadding(0, 2 * density, 0, 0);
 			lp.addRule(RelativeLayout.CENTER_HORIZONTAL);

@@ -3,7 +3,7 @@
 
     <stroke
         android:width="@dimen/default_divide_line"
-        android:color="@color/default_divide_line" />
+        android:color="@color/default_light_divide_line" />
 
     <corners android:radius="@dimen/default_radio" />
 
