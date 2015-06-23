@@ -1,6 +1,5 @@
 package com.leaven.mianjiao;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.MapView;
 import com.leaven.mianjiao.tools.CommonUtils;
 
