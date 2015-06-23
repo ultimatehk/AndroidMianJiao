@@ -15,7 +15,7 @@
         android:id="@+id/tvAboutUs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/user_center_about_us_bg"
+        android:background="@color/default_open_content_bg"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="@string/about_us_content"
         android:textColor="@color/default_blue"

@@ -2,19 +2,21 @@
 <resources>
 
     <!-- default -->
-    <color name="default_divide_line_bg">#ffececec</color>
-    <color name="default_blue">#ff1e9ac5</color>
+    <color name="default_more_dark_blue">#ff1d9bc4</color>
+    <color name="default_dark_blue">#ff1ea8c5</color>
+    <color name="default_blue">#ff43b2c6</color>
+    <color name="default_light_blue">#ff6abcca</color>
+    <color name="default_more_light_blue">#ff9cd0de</color>
     <color name="default_black">#ff000000</color>
     <color name="default_white">#ffffffff</color>
     <color name="default_dark_gray">#ff666666</color>
     <color name="default_light_gray">#ffb2b2b2</color>
-    <color name="default_light_blue">#ff9cd0df</color>
+    <color name="default_divide_line">#ffb1b1b1</color>
+    <color name="default_open_content_bg">#fff2f2f2</color>
     <!-- titleBar -->
     <color name="title_bar_title_text_color">#ff000000</color>
     <color name="title_bar_left_text_color">#ff000000</color>
     <color name="title_bar_right_text_color">#ff000000</color>
     <color name="title_bar_bg">#ffffffff</color>
-    <!-- 个人中心 关于我们 -->
-    <color name="user_center_about_us_bg">#fff2f2f2</color>
 
 </resources>

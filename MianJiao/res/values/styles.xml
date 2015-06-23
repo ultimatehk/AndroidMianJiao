@@ -18,7 +18,7 @@
     </style>
 
     <style name="DefaultHorizontalDivideLine" parent="BaseHorizontalDivideLine">
-        <item name="android:background">@color/default_divide_line_bg</item>
+        <item name="android:background">@color/default_divide_line</item>
     </style>
 
     <style name="BaseHomeFragmentText">
