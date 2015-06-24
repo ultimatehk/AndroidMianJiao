@@ -24,6 +24,8 @@ public class SwipeRefreshListView extends SwipeRefreshLayout {
 
 	public void init() {
 		LayoutInflater.from(getContext()).inflate(R.layout.view_swipe_refresh_listview, this);
+		setColorSchemeResources(R.color.default_more_dark_blue, R.color.default_dark_blue, R.color.default_blue,
+				R.color.default_light_blue, R.color.default_more_light_blue);
 		mListView = (ListView) findViewById(R.id.listView);
 	}
 
