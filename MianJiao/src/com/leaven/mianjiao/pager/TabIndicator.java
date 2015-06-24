@@ -3,6 +3,7 @@ package com.leaven.mianjiao.pager;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.tools.CommonUtils;
 import com.leaven.mianjiao.tools.Constant;
 
 import android.content.Context;
@@ -35,6 +36,7 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 	private int mSelectedTabIndex = 0;
 	private final OnClickListener mTabClickListener = new OnClickListener() {
 		public void onClick(View view) {
+			CommonUtils.hideSoftInputFromWindow(view);
 			TabView tabView = (TabView) view.getTag();
 			final int newSelected = tabView.getIndex();
 			final int oldSelected = mBasePager.getCurrentItemIndex();
