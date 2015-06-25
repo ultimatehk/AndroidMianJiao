@@ -89,8 +89,8 @@ public class BasePager extends RelativeLayout {
 		return getItem(position).getIconResId();
 	}
 
-	public int getRightEdgeIconId(int position) {
-		return getItem(position).getRightEdgeIconResId();
+	public int getRightNum(int position) {
+		return getItem(position).getRightNum();
 	}
 
 	public String getPageTitle(int position) {
@@ -156,7 +156,7 @@ public class BasePager extends RelativeLayout {
 		}
 
 		@Override
-		public int getRightEdgeIconResId() {
+		public int getRightNum() {
 			return 0;
 		}
 
@@ -183,6 +183,7 @@ public class BasePager extends RelativeLayout {
 				mTabIndicator.notifyBottomTabChanged(this);
 			}
 		}
+
 	}
 
 	public List<? extends AbstractPagerFragment> getPagerFragments() {

@@ -129,7 +129,7 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 		}
 	}
 
-	private void addTab(int index, CharSequence text, int iconResId, int rightEdgeIconResId) {
+	private void addTab(int index, CharSequence text, int iconResId, int rightNum) {
 		final TabView tabView = createTab(index);
 		if (!TextUtils.isEmpty(text)) {
 			tabView.setText(text);
@@ -137,13 +137,11 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 		if (iconResId != 0) {
 			tabView.setIcon(iconResId);
 		}
-		if (rightEdgeIconResId != 0) {
-			tabView.setRightEdgeIcon(rightEdgeIconResId);
-		}
+		tabView.setRightNum(rightNum);
 		tabView.setTag(tabView);
 		DisplayMetrics dm = getResources().getDisplayMetrics();
 		LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
-		mTabLayout.setPadding(0, (int) (10 * dm.density), 0, (int) (10 * dm.density));
+		mTabLayout.setPadding(0, 0, 0, (int) (Constant.MULTI_TAB_PADDING * dm.density));
 		mTabLayout.addView(tabView, p);
 	}
 
@@ -178,8 +176,8 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			}
 			int iconResId = 0;
 			iconResId = mBasePager.getIconResId(i);
-			int rightEdgeIconResId = mBasePager.getRightEdgeIconId(i);
-			addTab(i, title, iconResId, rightEdgeIconResId);
+			int rightNum = mBasePager.getRightNum(i);
+			addTab(i, title, iconResId, rightNum);
 		}
 		if (mSelectedTabIndex > count) {
 			mSelectedTabIndex = count - 1;
@@ -192,7 +190,7 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 		int index = mBasePager.getPagerFragments().indexOf(f);
 		if (index >= 0) {
 			TabView child = (TabView) mTabLayout.getChildAt(index);
-			child.setRightEdgeIcon(f.getRightEdgeIconResId());
+			child.setRightNum(f.getRightNum());
 		}
 	}
 
@@ -218,7 +216,7 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 
 	private class TabView extends RelativeLayout {
 		private int mIndex;
-		private ImageView edgeIco;
+		private TextView tvNum;
 		private TextView tvTab;
 		private ImageView ivTab;
 		private static final int ID_TV_TAB = 0x7f000001;
@@ -226,11 +224,12 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 
 		public TabView(Context context) {
 			super(context, null, 0);
-			int density = (int) getResources().getDisplayMetrics().density;
+			float density = getResources().getDisplayMetrics().density;
 			ivTab = new ImageView(context);
 			ivTab.setScaleType(ScaleType.FIT_CENTER);
-			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(Constant.MULTI_TAB_ICON_WIDTH * density,
-					Constant.MULTI_TAB_ICON_HEIGHT * density);
+			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+					(int) (Constant.MULTI_TAB_ICON_WIDTH * density), (int) (Constant.MULTI_TAB_ICON_HEIGHT * density));
+			lp.setMargins(0, (int) (Constant.MULTI_TAB_PADDING * density), 0, 0);
 			ivTab.setId(ID_IV_TAB);
 			lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
 			this.addView(ivTab, lp);
@@ -241,26 +240,29 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
 					RelativeLayout.LayoutParams.WRAP_CONTENT);
 			tvTab.setId(ID_TV_TAB);
-			Resources resource = context.getResources();
-			ColorStateList csl = (ColorStateList) resource
-					.getColorStateList(R.color.selector_homebottom_tab_text_color);
+			ColorStateList csl = (ColorStateList) getResources().getColorStateList(
+					R.color.selector_homebottom_tab_text_color);
 			if (csl != null) {
 				tvTab.setTextColor(csl);
 			}
 			tvTab.setTextSize(Constant.MULTI_TAB_TEXT_SIZE);
-			tvTab.setMaxEms(4);
-			tvTab.setPadding(0, 2 * density, 0, 0);
+			tvTab.setMaxEms(Constant.MULTI_TAB_MAX_TEXT_COUNT);
+			tvTab.setPadding(0, (int) (Constant.MULTI_TAB_ICON_TEXT_GAP * density), 0, 0);
 			lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
 			lp.addRule(RelativeLayout.BELOW, ivTab.getId());
 			this.addView(tvTab, lp);
+			tvNum = new TextView(context);
+			tvNum.setGravity(Gravity.CENTER);
+			tvNum.setBackgroundResource(R.drawable.ring_blue);
+			tvNum.setTextAppearance(context, R.style.TabRightNum);
+			tvNum.setVisibility(View.GONE);
 			lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
 					RelativeLayout.LayoutParams.WRAP_CONTENT);
-			lp.addRule(RelativeLayout.ALIGN_TOP, ivTab.getId());
-			lp.setMargins(0, 0, 16 * density, 0);
-			lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-			edgeIco = new ImageView(context);
-			edgeIco.setVisibility(View.VISIBLE);
-			this.addView(edgeIco, lp);
+			lp.addRule(RelativeLayout.ALIGN_LEFT, ivTab.getId());
+			int circleSize = getResources().getDimensionPixelOffset(R.dimen.homebottom_order_num_circle_size);
+			lp.setMargins((int) (Constant.MULTI_TAB_ICON_WIDTH * density) - circleSize / 2,
+					(int) (Constant.MULTI_TAB_PADDING * density) - circleSize / 2, 0, 0);
+			this.addView(tvNum, lp);
 		}
 
 		@Override
@@ -292,8 +294,9 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			ivTab.setSelected(selected);
 		}
 
-		public void setRightEdgeIcon(int icResId) {
-			edgeIco.setImageResource(icResId);
+		public void setRightNum(int num) {
+			tvNum.setVisibility(num > 0 ? View.VISIBLE : View.GONE);
+			tvNum.setText(num + "");
 		}
 	}
 }

@@ -21,6 +21,12 @@
         <item name="android:background">@color/default_light_divide_line</item>
     </style>
 
+    <!-- Tab -->
+    <style name="TabRightNum">
+        <item name="android:textSize">@dimen/homebottom_order_num_text_size</item>
+        <item name="android:textColor">@color/default_white</item>
+    </style>
+    <!-- SearchFragment -->
     <style name="BaseSearchFragmentText">
         <item name="android:textSize">@dimen/searchfragment_text_size</item>
     </style>
@@ -57,4 +63,5 @@
         <item name="android:background">@color/default_more_light_blue</item>
         <item name="android:textColor">@color/default_white</item>
     </style>
-</resources>
+
+</resources>

@@ -18,6 +18,18 @@ public class Constant {
 	 */
 	public static int MULTI_TAB_TEXT_SIZE = 11;
 	/**
+	 * Tab上下边距
+	 */
+	public static int MULTI_TAB_PADDING = 10;
+	/**
+	 * Tab字数限制
+	 */
+	public static int MULTI_TAB_MAX_TEXT_COUNT = 4;
+	/**
+	 * Tab文字与icon之间的间距
+	 */
+	public static int MULTI_TAB_ICON_TEXT_GAP = 2;
+	/**
 	 * Tab首页的文案
 	 */
 	public static String MULTI_TAB_HOME = "面酵";

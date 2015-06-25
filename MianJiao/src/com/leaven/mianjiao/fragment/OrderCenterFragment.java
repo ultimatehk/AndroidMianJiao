@@ -24,7 +24,6 @@ public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 		return v;
 	}
 
-
 	@Override
 	public void onSelected() {
 		super.onSelected();
@@ -34,6 +33,11 @@ public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 	@Override
 	public void onReSelected() {
 		// TODO 重复选择
+	}
+
+	@Override
+	public int getRightNum() {
+		return 5;
 	}
 
 	@Override
