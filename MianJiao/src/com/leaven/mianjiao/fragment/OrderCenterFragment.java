@@ -11,10 +11,19 @@ import android.view.ViewGroup;
 
 public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 	private static String TAG = "订单中心";
+	private int RightNum;
 
 	public OrderCenterFragment() {
 		super();
 		super.TAG = TAG;
+	}
+
+	/**
+	 * 增加商品
+	 */
+	public void addGood() {
+		RightNum++;
+		notifyBottomTabStateChanged();
 	}
 
 	@SuppressLint("InflateParams")
@@ -37,7 +46,7 @@ public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 
 	@Override
 	public int getRightNum() {
-		return 5;
+		return RightNum;
 	}
 
 	@Override

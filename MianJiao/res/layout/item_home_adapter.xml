@@ -56,6 +56,7 @@
         android:text="距离和地址" />
 
     <TextView
+        android:id="@+id/btnAddGood"
         style="@style/SymbolAddStyle"
         android:layout_width="@dimen/home_adapter_item_symbol_add_size"
         android:layout_height="@dimen/home_adapter_item_symbol_add_size"

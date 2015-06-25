@@ -8,7 +8,6 @@ import com.leaven.mianjiao.tools.Constant;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.content.res.Resources;
 import android.text.TextUtils;
 import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
@@ -214,6 +213,13 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 		}
 	}
 
+	public void getRightNumLocation(int index, int[] location) {
+		if (mTabLayout.getChildCount() > index) {
+			TabView tabView = (TabView) mTabLayout.getChildAt(index);
+			tabView.getRightNumLocation(location);
+		}
+	}
+
 	private class TabView extends RelativeLayout {
 		private int mIndex;
 		private TextView tvNum;
@@ -255,7 +261,7 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			tvNum.setGravity(Gravity.CENTER);
 			tvNum.setBackgroundResource(R.drawable.ring_blue);
 			tvNum.setTextAppearance(context, R.style.TabRightNum);
-			tvNum.setVisibility(View.GONE);
+			tvNum.setVisibility(View.INVISIBLE);
 			lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
 					RelativeLayout.LayoutParams.WRAP_CONTENT);
 			lp.addRule(RelativeLayout.ALIGN_LEFT, ivTab.getId());
@@ -295,8 +301,12 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 		}
 
 		public void setRightNum(int num) {
-			tvNum.setVisibility(num > 0 ? View.VISIBLE : View.GONE);
+			tvNum.setVisibility(num > 0 ? View.VISIBLE : View.INVISIBLE);
 			tvNum.setText(num + "");
+		}
+
+		public void getRightNumLocation(int[] location) {
+			tvNum.getLocationOnScreen(location);
 		}
 	}
 }

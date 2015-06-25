@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.leaven.mianjiao.MultiTabActivity;
 import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.bean.HomeItemBean;
 
@@ -63,12 +64,14 @@ public class HomeAdapter extends BaseAdapter {
 		private TextView tvGoodName;
 		private TextView tvGoodPrice;
 		private TextView tvDistanceAddress;
+		private View btnAddGood;
 
 		public HomeItemViewHolder(View layout) {
 			imgGoodImg = (ImageView) layout.findViewById(R.id.imgGoodImg);
 			tvGoodName = (TextView) layout.findViewById(R.id.tvGoodName);
 			tvGoodPrice = (TextView) layout.findViewById(R.id.tvGoodPrice);
 			tvDistanceAddress = (TextView) layout.findViewById(R.id.tvDistanceAddress);
+			btnAddGood = layout.findViewById(R.id.btnAddGood);
 		}
 
 		public void bindData(HomeItemBean data) {
@@ -78,6 +81,19 @@ public class HomeAdapter extends BaseAdapter {
 			tvGoodPrice.setText(data.getGoodPrice());
 			tvDistanceAddress.setText(data.getDistance() + mContext.getString(R.string.backbtn_blank_text_4)
 					+ data.getAddress());
+			btnAddGood.setOnClickListener(new View.OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					if (mContext instanceof MultiTabActivity) {
+						int[] locations = new int[2];
+						btnAddGood.getLocationOnScreen(locations);
+						int x = locations[0];// 获取组件当前位置的横坐标
+						int y = locations[1];// 获取组件当前位置的纵坐标
+						((MultiTabActivity) mContext).addGoods(x, y);
+					}
+				}
+			});
 		}
 	}
 

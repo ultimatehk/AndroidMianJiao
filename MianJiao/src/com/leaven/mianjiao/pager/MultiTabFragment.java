@@ -15,6 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class MultiTabFragment extends Fragment {
+	public static int INDEX_OF_FRAGMENT_BASEMENT_HOME = 0;
+	public static int INDEX_OF_FRAGMENT_ORDER_CENTER = 1;
+	public static int INDEX_OF_FRAGMENT_USER_CENTER = 2;
 	private TabIndicator tabIndicator;
 	private BasePager basePager;
 	private List<BasePager.AbstractPagerFragment> abstractPagerFragments;
@@ -63,6 +66,30 @@ public class MultiTabFragment extends Fragment {
 
 	public void notifyBottomTabStateChanged() {
 		tabIndicator.notifyDataSetChanged();
+	}
+
+	/**
+	 * 返回Fragment
+	 * 
+	 * @param index
+	 *            本类中的INDEX_OF_FRAGMENT_BASEMENT_HOME， INDEX_OF_FRAGMENT_ORDER_CENTER， INDEX_OF_FRAGMENT_USER_CENTER
+	 * @return 如果有返回，否则为null
+	 */
+	public BasePager.AbstractPagerFragment getFragment(int index) {
+		return abstractPagerFragments == null || abstractPagerFragments.size() <= index ? null : abstractPagerFragments
+				.get(index);
+	}
+
+	/**
+	 * 右侧的数字的坐标（相对于屏幕）
+	 * 
+	 * @param index
+	 *            本类中的INDEX_OF_FRAGMENT_BASEMENT_HOME， INDEX_OF_FRAGMENT_ORDER_CENTER， INDEX_OF_FRAGMENT_USER_CENTER
+	 * @param location
+	 *            int[2]数组
+	 */
+	public void getRightNumLocation(int index, int[] location) {
+		tabIndicator.getRightNumLocation(index, location);
 	}
 
 	public boolean canFinish() {

@@ -49,4 +49,8 @@ public class Constant {
 	 * Toast最短点击间隔时间，单位ms
 	 */
 	public static final long SHORT_SHOW_TIME = 3000L;
+	/**
+	 * 进入购物车动画时长
+	 */
+	public static final long ANIMATION_DURATION_TIME = 1000L;
 }
