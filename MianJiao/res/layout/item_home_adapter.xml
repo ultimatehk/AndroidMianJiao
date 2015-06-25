@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/home_adapter_item_padding"
+    android:paddingRight="@dimen/home_adapter_item_padding" >
+
+    <ImageView
+        android:id="@+id/imgGoodImg"
+        android:layout_width="@dimen/home_adapter_item_good_img_size"
+        android:layout_height="@dimen/home_adapter_item_good_img_size"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/default_text_padding"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:layout_marginTop="@dimen/default_text_padding" />
+
+    <TextView
+        android:id="@+id/tvGoodName"
+        style="@style/HomeAdapterGoodNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgGoodImg"
+        android:layout_toRightOf="@id/imgGoodImg"
+        android:singleLine="true"
+        android:text="商品名称" />
+
+    <TextView
+        android:id="@+id/tvRMB"
+        style="@style/HomeAdapterRMBText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvGoodPrice"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:layout_toRightOf="@id/imgGoodImg"
+        android:text="RMB" />
+
+    <TextView
+        android:id="@+id/tvGoodPrice"
+        style="@style/HomeAdapterGoodPriceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGoodName"
+        android:layout_marginTop="@dimen/default_text_padding"
+        android:layout_toRightOf="@id/tvRMB"
+        android:text="商品价格" />
+
+    <TextView
+        android:id="@+id/tvDistanceAddress"
+        style="@style/HomeAdapterDistanceAddressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvRMB"
+        android:layout_marginBottom="@dimen/default_text_padding"
+        android:layout_marginTop="@dimen/default_text_padding"
+        android:layout_toRightOf="@id/imgGoodImg"
+        android:text="距离和地址" />
+
+    <TextView
+        style="@style/SymbolAddStyle"
+        android:layout_width="@dimen/home_adapter_item_symbol_add_size"
+        android:layout_height="@dimen/home_adapter_item_symbol_add_size"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="@string/symbol_add" />
+
+    <View
+        style="@style/DefaultHorizontalDivideLine"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

@@ -173,7 +173,7 @@ public class TopTitleBar extends RelativeLayout {
 		/**
 		 * 如果是没有任何文案默认加上空格，扩大textview的可点击区域
 		 */
-		btnTopLeft.setText(TextUtils.isEmpty(titleLeftBtn) ? getResources().getString(R.string.backbtn_blank_text)
+		btnTopLeft.setText(TextUtils.isEmpty(titleLeftBtn) ? getResources().getString(R.string.backbtn_blank_text_8)
 				: titleLeftBtn);
 		if (drawableLeftBtn > 0) {
 			btnTopLeft.setCompoundDrawablesWithIntrinsicBounds(drawableLeftBtn, 0, 0, 0);
@@ -187,7 +187,7 @@ public class TopTitleBar extends RelativeLayout {
 		/**
 		 * 如果是没有任何文案默认加上空格，扩大textview的可点击区域
 		 */
-		btnTopRight.setText(TextUtils.isEmpty(titleRightBtn) ? getResources().getString(R.string.backbtn_blank_text)
+		btnTopRight.setText(TextUtils.isEmpty(titleRightBtn) ? getResources().getString(R.string.backbtn_blank_text_8)
 				: titleRightBtn);
 		if (drawableRightBtn > 0) {
 			btnTopRight.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableRightBtn, 0);

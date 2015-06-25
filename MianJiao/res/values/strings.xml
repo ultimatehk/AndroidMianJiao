@@ -2,13 +2,15 @@
 <resources>
 
     <string name="app_name">面酵</string>
+    <string name="symbol_add">+</string>
+    <string name="backbtn_blank_text_8">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="backbtn_blank_text_4">&#160;&#160;&#160;&#160;</string>
     <!-- searchFragment -->
     <string name="search">搜索</string>
     <string name="business_recommendatio">商家推荐</string>
     <string name="recent_update">最近更新</string>
     <string name="nearest_distance">最近距离</string>
     <string name="cheapest_price">最低价格</string>
-    <string name="backbtn_blank_text">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
     <string name="about_us">关于我们</string>
     <string name="user_info">个人信息</string>
     <string name="my_red_packet">我的红包</string>

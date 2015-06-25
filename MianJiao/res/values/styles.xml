@@ -32,5 +32,29 @@
     <style name="SearchFragmentSelectTabText" parent="BaseSearchFragmentText">
         <item name="android:textColor">@color/selector_homefragment_tab_text_color</item>
     </style>
+    <!-- HomeFragmentAdapterItem -->
+    <style name="HomeAdapterGoodNameText">
+        <item name="android:textSize">@dimen/home_adapter_item_good_name_text_size</item>
+        <item name="android:textColor">@color/default_dark_gray</item>
+    </style>
 
-</resources>
+    <style name="HomeAdapterRMBText">
+        <item name="android:textSize">@dimen/home_adapter_item_rmb_text_size</item>
+        <item name="android:textColor">@color/default_dark_blue</item>
+    </style>
+
+    <style name="HomeAdapterGoodPriceText">
+        <item name="android:textSize">@dimen/home_adapter_item_good_price_text_size</item>
+        <item name="android:textColor">@color/default_dark_blue</item>
+    </style>
+
+    <style name="HomeAdapterDistanceAddressText">
+        <item name="android:textSize">@dimen/home_adapter_item_distance_address_text_size</item>
+        <item name="android:textColor">@color/default_more_light_blue</item>
+    </style>
+
+    <style name="SymbolAddStyle">
+        <item name="android:background">@color/default_more_light_blue</item>
+        <item name="android:textColor">@color/default_white</item>
+    </style>
+</resources>
