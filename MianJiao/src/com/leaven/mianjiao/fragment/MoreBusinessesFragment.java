@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.leaven.mianjiao.R;
+import com.leaven.mianjiao.bean.GoodsListItemBean;
 import com.leaven.mianjiao.pager.BaseHomeFragment;
 
 public class MoreBusinessesFragment extends BaseHomeFragment {
 	private static String TAG = "MoreBusinessesFragment";
+	private static GoodsListItemBean goodListItemBean;
 
 	@SuppressLint("InflateParams")
 	@Override
@@ -22,6 +24,10 @@ public class MoreBusinessesFragment extends BaseHomeFragment {
 	@Override
 	public String getTAG() {
 		return TAG;
+	}
+
+	public static void setGoodListItemBean(GoodsListItemBean goodListItemBean) {
+		MoreBusinessesFragment.goodListItemBean = goodListItemBean;
 	}
 
 	@Override

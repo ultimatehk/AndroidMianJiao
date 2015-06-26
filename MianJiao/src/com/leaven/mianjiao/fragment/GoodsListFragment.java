@@ -1,5 +1,7 @@
 package com.leaven.mianjiao.fragment;
 
+import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,6 +10,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.leaven.mianjiao.R;
@@ -16,19 +20,20 @@ import com.leaven.mianjiao.bean.GoodsListItemBean;
 import com.leaven.mianjiao.pager.BaseHomeFragment;
 import com.leaven.mianjiao.view.SwipeRefreshListView;
 
-public class GoodsListFragment extends BaseHomeFragment {
+public class GoodsListFragment extends BaseHomeFragment implements OnItemClickListener {
 	private static final int MSG_WHAT_SET_ADAPTER = 0;
 	private static String TAG = "GoodsListFragment";
 	private SwipeRefreshListView mSwipeRefreshLayout;
 	private ListView mListView;
+	private List<GoodsListItemBean> goodsList;
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			if (getActivity() != null && !getActivity().isFinishing()) {
 				switch (msg.what) {
 				case MSG_WHAT_SET_ADAPTER:
-					mListView.setAdapter(new GoodsListAdapter(getActivity(), GoodsListItemBean.getList(msg.obj
-							.toString())));
+					goodsList = GoodsListItemBean.getList(msg.obj.toString());
+					mListView.setAdapter(new GoodsListAdapter(getActivity(), goodsList));
 					break;
 				default:
 					break;
@@ -48,7 +53,7 @@ public class GoodsListFragment extends BaseHomeFragment {
 	private void initView(View layout) {
 		mSwipeRefreshLayout = (SwipeRefreshListView) layout.findViewById(R.id.swipeRefreshListView);
 		mListView = mSwipeRefreshLayout.getListView();
-
+		mListView.setOnItemClickListener(this);
 		mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 			@Override
 			public void onRefresh() {
@@ -87,6 +92,14 @@ public class GoodsListFragment extends BaseHomeFragment {
 	@Override
 	public boolean isWithSearchFragment() {
 		return true;
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		System.out.println(position + ":" + id);
+		openFragment(MoreBusinessesFragment.class);
+		if (goodsList != null && !goodsList.isEmpty())
+			MoreBusinessesFragment.setGoodListItemBean(goodsList.get(position));
 	}
 
 }
