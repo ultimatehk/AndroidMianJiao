@@ -4,7 +4,6 @@ import com.leaven.mianjiao.MapActivity;
 import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.ScanActivity;
 import com.leaven.mianjiao.tools.CommonUtils;
-import com.leaven.mianjiao.view.CustomToast;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -19,11 +18,30 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class SearchFragment extends Fragment implements View.OnClickListener {
+	public static int ID_TAB_LEFT = R.id.btnSearchTabLeft;
+	public static int ID_TAB_RIGHT = R.id.btnSearchTabRight;
 
 	private View btnScan;
 	private View btnLocation;
 	private TextView btnSearchTabLeft, btnSearchTabRight;
 	private EditText edtSearch;
+	private OnClickBtnListener onClickBtnListener;
+
+	public void setOnClickBtnListener(OnClickBtnListener onClickBtnListener) {
+		this.onClickBtnListener = onClickBtnListener;
+	}
+
+	public interface OnClickBtnListener {
+		/**
+		 * 左键和右键的ID通过本类的ID_TAB_LEFT和ID_TAB_RIGHT得到
+		 * 
+		 * @param view
+		 *            左键和右键的View
+		 */
+		public abstract void onClickTab(View view);
+
+		public abstract void onClickSearch(String keyWords);
+	}
 
 	@SuppressLint("InflateParams")
 	@Override
@@ -49,7 +67,9 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 					CommonUtils.hideSoftInputFromWindow(v);
-					CustomToast.showToast(getActivity(), v.getText().toString());
+					if (onClickBtnListener != null) {
+						onClickBtnListener.onClickSearch(v.getText().toString());
+					}
 					return true;
 				}
 				return false;
@@ -95,6 +115,9 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 		case R.id.btnSearchTabLeft:
 		case R.id.btnSearchTabRight:
 			switchTabState(v.getId() == R.id.btnSearchTabLeft);
+			if (onClickBtnListener != null) {
+				onClickBtnListener.onClickTab(v);
+			}
 			break;
 		}
 	}
@@ -109,4 +132,5 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 		btnSearchTabLeft.setText(isAfterSearch ? R.string.nearest_distance : R.string.business_recommendatio);
 		btnSearchTabRight.setText(isAfterSearch ? R.string.cheapest_price : R.string.recent_update);
 	}
+
 }
