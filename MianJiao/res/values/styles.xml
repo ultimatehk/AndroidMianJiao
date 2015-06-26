@@ -58,5 +58,25 @@
         <item name="android:textSize">@dimen/home_adapter_item_distance_address_text_size</item>
         <item name="android:textColor">@color/default_more_light_blue</item>
     </style>
+    <!-- GoodsListFragmentAdapterItem -->
+    <style name="GoodsListAdapterGoodNameText">
+        <item name="android:textSize">@dimen/goods_list_adapter_item_good_name_text_size</item>
+        <item name="android:textColor">@color/default_dark_gray</item>
+    </style>
+
+    <style name="GoodsListAdapterRMBText">
+        <item name="android:textSize">@dimen/goods_list_adapter_item_rmb_text_size</item>
+        <item name="android:textColor">@color/default_dark_blue</item>
+    </style>
+
+    <style name="GoodsListAdapterGoodPriceText">
+        <item name="android:textSize">@dimen/goods_list_adapter_item_good_price_text_size</item>
+        <item name="android:textColor">@color/default_dark_blue</item>
+    </style>
+
+    <style name="GoodsListAdapterDistanceAddressText">
+        <item name="android:textSize">@dimen/goods_list_adapter_item_distance_address_text_size</item>
+        <item name="android:textColor">@color/default_more_light_blue</item>
+    </style>
 
 </resources>

@@ -2,13 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/home_adapter_item_padding"
-    android:paddingRight="@dimen/home_adapter_item_padding" >
+    android:paddingLeft="@dimen/goods_list_adapter_item_padding"
+    android:paddingRight="@dimen/goods_list_adapter_item_padding" >
 
     <ImageView
         android:id="@+id/imgGoodImg"
-        android:layout_width="@dimen/home_adapter_item_good_img_size"
-        android:layout_height="@dimen/home_adapter_item_good_img_size"
+        android:layout_width="@dimen/goods_list_adapter_item_good_img_size"
+        android:layout_height="@dimen/goods_list_adapter_item_good_img_size"
         android:layout_centerVertical="true"
         android:layout_marginBottom="@dimen/default_text_padding"
         android:layout_marginRight="@dimen/default_item_gap"
@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/tvGoodName"
-        style="@style/HomeAdapterGoodNameText"
+        style="@style/GoodsListAdapterGoodNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imgGoodImg"
@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/tvRMB"
-        style="@style/HomeAdapterRMBText"
+        style="@style/GoodsListAdapterRMBText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tvGoodPrice"
@@ -35,7 +35,7 @@
 
     <TextView
         android:id="@+id/tvGoodPrice"
-        style="@style/HomeAdapterGoodPriceText"
+        style="@style/GoodsListAdapterGoodPriceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvGoodName"
@@ -43,7 +43,7 @@
         android:layout_toRightOf="@id/tvRMB" />
 
     <TextView
-        style="@style/HomeAdapterRMBText"
+        style="@style/GoodsListAdapterRMBText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/tvRMB"
@@ -53,7 +53,7 @@
 
     <TextView
         android:id="@+id/tvDistanceAddress"
-        style="@style/HomeAdapterDistanceAddressText"
+        style="@style/GoodsListAdapterDistanceAddressText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvRMB"
