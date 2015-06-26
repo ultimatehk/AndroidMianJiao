@@ -43,6 +43,15 @@
         android:layout_toRightOf="@id/tvRMB" />
 
     <TextView
+        style="@style/HomeAdapterRMBText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tvRMB"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:layout_toLeftOf="@+id/btnAddGood"
+        android:text="@string/more_businesses" />
+
+    <TextView
         android:id="@+id/tvDistanceAddress"
         style="@style/HomeAdapterDistanceAddressText"
         android:layout_width="wrap_content"

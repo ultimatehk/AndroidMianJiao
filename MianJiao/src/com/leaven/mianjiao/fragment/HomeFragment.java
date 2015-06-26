@@ -23,7 +23,6 @@ public class HomeFragment extends BaseHomeFragment implements View.OnClickListen
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_home, null);
-		// v.findViewById(R.id.btnOpenSearchFragment).setOnClickListener(this);
 		initView(v);
 		return v;
 	}

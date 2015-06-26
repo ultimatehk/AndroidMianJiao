@@ -29,9 +29,9 @@ public abstract class BaseHomeFragment extends Fragment implements IHomeFragment
 		MobclickAgent.onPageEnd(TAG);
 	}
 
-	protected void openFragment(BaseHomeFragment fg) {
+	protected void openFragment(Class<?> fragmentClass) {
 		if (basementHomeFragment != null) {
-			basementHomeFragment.openFragment(fg);
+			basementHomeFragment.openFragment(fragmentClass);
 		}
 	}
 

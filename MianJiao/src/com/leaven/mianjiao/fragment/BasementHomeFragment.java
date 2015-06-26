@@ -1,5 +1,7 @@
 package com.leaven.mianjiao.fragment;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
@@ -12,7 +14,6 @@ import android.view.ViewGroup;
 import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.pager.BaseHomeFragment;
 import com.leaven.mianjiao.pager.BasePager;
-import com.leaven.mianjiao.tools.CommonUtils;
 import com.leaven.mianjiao.tools.Constant;
 import com.leaven.mianjiao.view.CustomToast;
 
@@ -31,19 +32,32 @@ public class BasementHomeFragment extends BasePager.AbstractPagerFragment implem
 		FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
 		ft.add(R.id.searchContainer, searchFragment);
 		ft.commit();
-		openFragment(new HomeFragment());
+		openFragment(HomeFragment.class);
 		return v;
 	}
 
-	public void openFragment(BaseHomeFragment fg) {
-		System.out.println(hasSearch);
+	public void openFragment(Class<?> className) {
+		BaseHomeFragment fg = null;
+		try {
+			Constructor<?> cons[] = className.getConstructors();
+			if (cons.length < 1)
+				return;
+			fg = (BaseHomeFragment) cons[0].newInstance();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (java.lang.InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
 		if (fg instanceof GoodsListFragment) {
 			// 搜索结果只有一个
 			if (hasSearch) {
 				for (int i = listFragment.size() - 1; i >= 0; i--) {
 					BaseHomeFragment fragment = listFragment.get(i);
 					if (fragment instanceof GoodsListFragment) {
-						// TODO 更改搜索内容
 						return;
 					} else {
 						closeFragment();
@@ -79,7 +93,7 @@ public class BasementHomeFragment extends BasePager.AbstractPagerFragment implem
 			}
 			// 关闭上一个页面
 			if (!listFragment.isEmpty()) {
-				BaseHomeFragment preFg = listFragment.get(listFragment.size() - 1);
+				BaseHomeFragment preFg = getFirstFragment();
 				ft.hide(preFg);
 				preFg.onCloseFragment();
 			}
@@ -108,7 +122,7 @@ public class BasementHomeFragment extends BasePager.AbstractPagerFragment implem
 		try {
 			FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
 			// 结束当前页面
-			BaseHomeFragment fg = listFragment.get(listFragment.size() - 1);
+			BaseHomeFragment fg = getFirstFragment();
 			ft.remove(fg);
 			fg.onCloseFragment();
 			listFragment.remove(listFragment.size() - 1);
@@ -117,7 +131,7 @@ public class BasementHomeFragment extends BasePager.AbstractPagerFragment implem
 			}
 			// 打开前一个页面
 			if (!listFragment.isEmpty()) {
-				fg = listFragment.get(listFragment.size() - 1);
+				fg = getFirstFragment();
 				// 搜索Fragment
 				if (fg.isWithSearchFragment()) {
 					showSearchFragment(ft);
@@ -136,8 +150,9 @@ public class BasementHomeFragment extends BasePager.AbstractPagerFragment implem
 	public void onSelected() {
 		// super.onSelected();
 		// TODO 选择
-		if (listFragment != null && !listFragment.isEmpty()) {
-			listFragment.get(listFragment.size() - 1).onOpenFragment();
+		BaseHomeFragment fragment = getFirstFragment();
+		if (fragment != null) {
+			fragment.onOpenFragment();
 		}
 	}
 
@@ -184,12 +199,20 @@ public class BasementHomeFragment extends BasePager.AbstractPagerFragment implem
 
 	}
 
+	private BaseHomeFragment getFirstFragment() {
+		return listFragment == null || listFragment.isEmpty() ? null : listFragment.get(listFragment.size() - 1);
+	}
+
 	@Override
 	public void onClickSearch(String keyWords) {
 		// TODO 搜索
 		CustomToast.showToast(getActivity(), keyWords);
-		openFragment(new GoodsListFragment());
+		openFragment(GoodsListFragment.class);
 		hasSearch = true;
+		BaseHomeFragment fragment = getFirstFragment();
+		if (fragment != null && fragment instanceof GoodsListFragment) {
+			((GoodsListFragment) fragment).searchByKeyWords(keyWords);
+		}
 	}
 
 }
