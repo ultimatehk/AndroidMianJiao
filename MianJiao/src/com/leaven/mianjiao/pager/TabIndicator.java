@@ -298,6 +298,12 @@ public class TabIndicator extends HorizontalScrollView implements PageIndicator 
 			super.setSelected(selected);
 			tvTab.setSelected(selected);
 			ivTab.setSelected(selected);
+			int num = 0;
+			try {
+				num = Integer.valueOf(tvNum.getText().toString());
+			} catch (Exception e) {
+			}
+			tvNum.setVisibility(selected || num <= 0 ? View.INVISIBLE : View.VISIBLE);
 		}
 
 		public void setRightNum(int num) {
