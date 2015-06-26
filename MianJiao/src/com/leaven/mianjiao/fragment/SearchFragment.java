@@ -84,6 +84,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 		switch (v.getId()) {
 		case R.id.btnScan:
 			Intent it = new Intent(getActivity(), ScanActivity.class);
+			it.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			getActivity().startActivity(it);
 			break;
 		case R.id.btnLocation:
