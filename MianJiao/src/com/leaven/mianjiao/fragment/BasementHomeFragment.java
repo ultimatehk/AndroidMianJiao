@@ -138,6 +138,9 @@ public class BasementHomeFragment extends BasePager.AbstractPagerFragment implem
 				} else {
 					hideSearchFragment(ft);
 				}
+				if (fg instanceof HomeFragment) {
+					searchFragment.setAfterSearchTabText(false);
+				}
 				ft.show(fg);
 				fg.onOpenFragment();
 				ft.commit();
@@ -208,6 +211,7 @@ public class BasementHomeFragment extends BasePager.AbstractPagerFragment implem
 		// TODO 搜索
 		CustomToast.showToast(getActivity(), keyWords);
 		openFragment(GoodsListFragment.class);
+		searchFragment.setAfterSearchTabText(true);
 		hasSearch = true;
 		BaseHomeFragment fragment = getFirstFragment();
 		if (fragment != null && fragment instanceof GoodsListFragment) {

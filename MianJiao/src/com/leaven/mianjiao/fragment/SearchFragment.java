@@ -91,11 +91,6 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 	private void switchTabState(boolean isLeftTab) {
 		btnSearchTabLeft.setSelected(isLeftTab);
 		btnSearchTabRight.setSelected(!isLeftTab);
-		if (isLeftTab) {
-			// TODO 最近距离请求数据，显示界面
-		} else {
-			// TODO 最近距离请求数据，显示界面
-		}
 	}
 
 	@Override
