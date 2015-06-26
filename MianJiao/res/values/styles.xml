@@ -78,5 +78,17 @@
         <item name="android:textSize">@dimen/goods_list_adapter_item_distance_address_text_size</item>
         <item name="android:textColor">@color/default_more_light_blue</item>
     </style>
+    <!-- 滚动条 -->
+    <style name="ScrollbarStyle">
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbarSize">@dimen/scrollbar_width</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_thumb</item>
+    </style>
+    <!-- ListViewStyle -->
+    <style name="ListViewStyle" parent="ScrollbarStyle">
+        <item name="android:divider">@color/default_transparent</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:listSelector">@color/default_transparent</item>
+    </style>
 
 </resources>

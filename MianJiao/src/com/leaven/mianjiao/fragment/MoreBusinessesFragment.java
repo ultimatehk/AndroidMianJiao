@@ -17,7 +17,7 @@ public class MoreBusinessesFragment extends BaseHomeFragment {
 	@SuppressLint("InflateParams")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_order_center, null);
+		View v = inflater.inflate(R.layout.fragment_more_businesses, null);
 		return v;
 	}
 

@@ -20,13 +20,13 @@ import com.leaven.mianjiao.bean.GoodsListItemBean;
 import com.leaven.mianjiao.pager.BaseHomeFragment;
 import com.leaven.mianjiao.view.SwipeRefreshListView;
 
+@SuppressLint("HandlerLeak")
 public class GoodsListFragment extends BaseHomeFragment implements OnItemClickListener {
 	private static final int MSG_WHAT_SET_ADAPTER = 0;
 	private static String TAG = "GoodsListFragment";
 	private SwipeRefreshListView mSwipeRefreshLayout;
 	private ListView mListView;
 	private List<GoodsListItemBean> goodsList;
-	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			if (getActivity() != null && !getActivity().isFinishing()) {

@@ -37,6 +37,9 @@
     <!-- tabDrawable -->
     <dimen name="homebottom_order_num_circle_size">16dp</dimen>
     <dimen name="homebottom_order_num_text_size">10sp</dimen>
+    <!-- 滚动条宽度 -->
+    <dimen name="scrollbar_width">4dp</dimen>
+    <dimen name="scrollbar_padding_width">1dp</dimen>
     <!-- 个人中心 关于我们 -->
     <dimen name="user_center_about_us_text_size">13sp</dimen>
 

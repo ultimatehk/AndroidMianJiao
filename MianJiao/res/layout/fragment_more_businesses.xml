@@ -49,15 +49,6 @@
             android:layout_toRightOf="@id/tvRMB" />
 
         <TextView
-            style="@style/GoodsListAdapterRMBText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/tvRMB"
-            android:layout_marginRight="@dimen/default_item_gap"
-            android:layout_toLeftOf="@+id/btnAddGood"
-            android:text="@string/more_businesses" />
-
-        <TextView
             android:id="@+id/tvDistanceAddress"
             style="@style/GoodsListAdapterDistanceAddressText"
             android:layout_width="wrap_content"
@@ -66,35 +57,17 @@
             android:layout_marginBottom="@dimen/default_text_padding"
             android:layout_marginTop="@dimen/default_text_padding"
             android:layout_toRightOf="@id/imgGoodImg" />
-
-        <ImageView
-            android:id="@+id/imgAddGoodBg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/symbol_add_normal" />
-
-        <TextView
-            android:id="@+id/btnAddGood"
-            android:layout_width="@dimen/symbol_add_normal_size"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:paddingBottom="@dimen/default_item_gap"
-            android:paddingTop="@dimen/default_item_gap"
-            android:text="@string/symbol_add"
-            android:textColor="@color/default_white" />
-
-        <View
-            style="@style/DefaultHorizontalDivideLine"
-            android:layout_width="match_parent"
-            android:layout_alignParentBottom="true" />
     </RelativeLayout>
+
+    <View
+        style="@style/DefaultHorizontalDivideLine"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/goods_list_adapter_item_padding"
+        android:layout_marginRight="@dimen/goods_list_adapter_item_padding" />
 
     <ListView
         android:id="@+id/listView"
+        style="@style/ListViewStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

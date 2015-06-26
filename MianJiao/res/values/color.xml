@@ -8,6 +8,7 @@
     <color name="default_light_blue">#ff6abcca</color>
     <color name="default_more_light_blue">#ff9cd0de</color>
     <color name="default_black">#ff000000</color>
+    <color name="default_transparent">#00000000</color>
     <color name="default_white">#ffffffff</color>
     <color name="default_dark_gray">#ff666666</color>
     <color name="default_light_gray">#ffb2b2b2</color>
@@ -19,5 +20,7 @@
     <color name="title_bar_left_text_color">#ff000000</color>
     <color name="title_bar_right_text_color">#ff000000</color>
     <color name="title_bar_bg">#ffffffff</color>
+    <!-- scrollbarColor -->
+    <color name="scrollbar_bg_color">#af383838</color>
 
 </resources>
