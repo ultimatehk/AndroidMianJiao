@@ -21,8 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imgGoodImg"
         android:layout_toRightOf="@id/imgGoodImg"
-        android:singleLine="true"
-        android:text="商品名称" />
+        android:singleLine="true" />
 
     <TextView
         android:id="@+id/tvRMB"
@@ -31,8 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tvGoodPrice"
         android:layout_marginRight="@dimen/default_item_gap"
-        android:layout_toRightOf="@id/imgGoodImg"
-        android:text="RMB" />
+        android:layout_toRightOf="@id/imgGoodImg" />
 
     <TextView
         android:id="@+id/tvGoodPrice"
@@ -41,8 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvGoodName"
         android:layout_marginTop="@dimen/default_text_padding"
-        android:layout_toRightOf="@id/tvRMB"
-        android:text="商品价格" />
+        android:layout_toRightOf="@id/tvRMB" />
 
     <TextView
         android:id="@+id/tvDistanceAddress"
@@ -52,18 +49,27 @@
         android:layout_below="@id/tvRMB"
         android:layout_marginBottom="@dimen/default_text_padding"
         android:layout_marginTop="@dimen/default_text_padding"
-        android:layout_toRightOf="@id/imgGoodImg"
-        android:text="距离和地址" />
+        android:layout_toRightOf="@id/imgGoodImg" />
+
+    <ImageView
+        android:id="@+id/imgAddGoodBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/symbol_add_normal" />
 
     <TextView
         android:id="@+id/btnAddGood"
-        style="@style/SymbolAddStyle"
-        android:layout_width="@dimen/home_adapter_item_symbol_add_size"
-        android:layout_height="@dimen/home_adapter_item_symbol_add_size"
+        android:layout_width="@dimen/symbol_add_normal_size"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:text="@string/symbol_add" />
+        android:paddingBottom="@dimen/default_item_gap"
+        android:paddingTop="@dimen/default_item_gap"
+        android:text="@string/symbol_add"
+        android:textColor="@color/default_white" />
 
     <View
         style="@style/DefaultHorizontalDivideLine"

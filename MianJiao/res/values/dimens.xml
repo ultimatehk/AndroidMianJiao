@@ -25,7 +25,8 @@
     <dimen name="home_adapter_item_distance_address_text_size">10sp</dimen>
     <dimen name="home_adapter_item_padding">30dp</dimen>
     <dimen name="home_adapter_item_good_img_size">69dp</dimen>
-    <dimen name="home_adapter_item_symbol_add_size">19dp</dimen>
+    <!-- 添加的符号背景大小 -->
+    <dimen name="symbol_add_normal_size">19dp</dimen>
     <!-- tabDrawable -->
     <dimen name="homebottom_order_num_circle_size">16dp</dimen>
     <dimen name="homebottom_order_num_text_size">10sp</dimen>

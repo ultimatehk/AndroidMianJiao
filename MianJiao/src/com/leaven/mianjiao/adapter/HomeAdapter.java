@@ -64,7 +64,7 @@ public class HomeAdapter extends BaseAdapter {
 		private TextView tvGoodName;
 		private TextView tvGoodPrice;
 		private TextView tvDistanceAddress;
-		private View btnAddGood;
+		private View btnAddGood, imgAddGoodBg;
 
 		public HomeItemViewHolder(View layout) {
 			imgGoodImg = (ImageView) layout.findViewById(R.id.imgGoodImg);
@@ -72,6 +72,7 @@ public class HomeAdapter extends BaseAdapter {
 			tvGoodPrice = (TextView) layout.findViewById(R.id.tvGoodPrice);
 			tvDistanceAddress = (TextView) layout.findViewById(R.id.tvDistanceAddress);
 			btnAddGood = layout.findViewById(R.id.btnAddGood);
+			imgAddGoodBg = layout.findViewById(R.id.imgAddGoodBg);
 		}
 
 		public void bindData(HomeItemBean data) {
@@ -87,7 +88,7 @@ public class HomeAdapter extends BaseAdapter {
 				public void onClick(View v) {
 					if (mContext instanceof MultiTabActivity) {
 						int[] locations = new int[2];
-						btnAddGood.getLocationOnScreen(locations);
+						imgAddGoodBg.getLocationOnScreen(locations);
 						int x = locations[0];// 获取组件当前位置的横坐标
 						int y = locations[1];// 获取组件当前位置的纵坐标
 						((MultiTabActivity) mContext).addGoods(x, y);

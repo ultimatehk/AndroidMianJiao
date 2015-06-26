@@ -59,9 +59,4 @@
         <item name="android:textColor">@color/default_more_light_blue</item>
     </style>
 
-    <style name="SymbolAddStyle">
-        <item name="android:background">@color/default_more_light_blue</item>
-        <item name="android:textColor">@color/default_white</item>
-    </style>
-
 </resources>
