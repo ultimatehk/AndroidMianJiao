@@ -63,17 +63,17 @@ public class MultiTabActivity extends BaseActivity {
 	 */
 	public void addGoods(int x, int y) {
 		int statusHeight = CommonUtils.getStatusHeight(this);
+		ViewHelper.setAlpha(animationRing, 0.3f);
 		ViewHelper.setScaleX(animationRing, 0.3f);
 		ViewHelper.setScaleY(animationRing, 0.3f);
 		ViewHelper.setTranslationX(animationRing, x);
 		ViewHelper.setTranslationY(animationRing, y - statusHeight);
 		int[] location = new int[2];
 		multiTabFragment.getRightNumLocation(MultiTabFragment.INDEX_OF_FRAGMENT_ORDER_CENTER, location);
-
 		int translationX = location[0];
 		int translationY = location[1] - statusHeight;
 		ViewPropertyAnimator.animate(animationRing).translationX(translationX).translationY(translationY).scaleX(1)
-				.scaleY(1).setDuration(Constant.ANIMATION_DURATION_TIME).setListener(new AnimatorListener() {
+				.scaleY(1).alpha(1).setDuration(Constant.ANIMATION_DURATION_TIME).setListener(new AnimatorListener() {
 
 					@Override
 					public void onAnimationStart(Animator animation) {
