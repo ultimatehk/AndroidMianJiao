@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_transparent" >
+
+    <Button
+        android:id="@+id/btn_location_home"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingRight="70dp"
+        android:text="@string/btn_location_home" 
+        />
+
+    <Button
+        android:id="@+id/btn_location_company"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btn_location_home"
+        android:paddingRight="70dp"
+        android:text="@string/btn_location_company" 
+        />
+
+    <Button
+        android:id="@+id/btn_location_other"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btn_location_company"
+        android:paddingRight="70dp"
+        android:text="@string/btn_location_other" 
+        />
+
+</RelativeLayout>

@@ -11,10 +11,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 public class SearchFragment extends Fragment implements View.OnClickListener {
@@ -26,6 +30,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 	private TextView btnSearchTabLeft, btnSearchTabRight;
 	private EditText edtSearch;
 	private OnClickBtnListener onClickBtnListener;
+	//定义下拉菜单
+    private PopupWindow popupwindow;
 
 	public void setOnClickBtnListener(OnClickBtnListener onClickBtnListener) {
 		this.onClickBtnListener = onClickBtnListener;
@@ -104,8 +110,16 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 			break;
 		case R.id.btnLocation:
 			// TODO 位置定位页面
-			Intent it2 = new Intent(getActivity(), MapActivity.class);
-			getActivity().startActivity(it2);
+			//Intent it2 = new Intent(getActivity(), MapActivity.class);
+			//getActivity().startActivity(it2);
+			if (popupwindow != null&&popupwindow.isShowing()) {  
+                popupwindow.dismiss();  
+                return;  
+            } else {  
+                initmPopupWindowView();  
+                popupwindow.showAsDropDown(v, 0, 5);  
+            } 
+			
 			break;
 		case R.id.btnSearchTabLeft:
 		case R.id.btnSearchTabRight:
@@ -127,5 +141,34 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 		btnSearchTabLeft.setText(isAfterSearch ? R.string.nearest_distance : R.string.business_recommendatio);
 		btnSearchTabRight.setText(isAfterSearch ? R.string.cheapest_price : R.string.recent_update);
 	}
-
+	
+	/**
+	 * 设置自定义下拉菜单view
+	 */
+	public void initmPopupWindowView() {  
+		  
+        //  获取自定义布局文件pop.xml的视图  
+		Bundle b = new Bundle();
+        View quickSelectLocationView = getLayoutInflater(b).inflate(R.layout.view_quick_select_location,  
+                null, false);  
+        // 创建PopupWindow实例,200,150分别是宽度和高度  
+        popupwindow = new PopupWindow(quickSelectLocationView, 250, 280);  
+        // 设置动画效果  
+        popupwindow.setAnimationStyle(R.style.AnimationFade);  
+        quickSelectLocationView.setOnTouchListener(new OnTouchListener() {  
+  
+            @Override  
+            public boolean onTouch(View v, MotionEvent event) {  
+                if (popupwindow != null && popupwindow.isShowing()) {  
+                    popupwindow.dismiss();  
+                    popupwindow = null;  
+                }  
+  
+                return false;  
+            }  
+        });  
+        Button btnLocationHome = (Button) quickSelectLocationView.findViewById(R.id.btn_location_home);  
+        Button btnLocationCompany = (Button) quickSelectLocationView.findViewById(R.id.btn_location_company);  
+        Button btnLocationOther = (Button) quickSelectLocationView.findViewById(R.id.btn_location_other); 
+	}
 }

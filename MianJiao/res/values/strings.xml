@@ -7,6 +7,10 @@
     <string name="more_businesses">更多商家></string>
     <string name="backbtn_blank_text_8">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
     <string name="backbtn_blank_text_4">&#160;&#160;&#160;&#160;</string>
+    <!-- 快速选择位置 -->
+    <string name="btn_location_home">在家</string>
+    <string name="btn_location_company">在公司</string>
+    <string name="btn_location_other">其他</string>
     <!-- searchFragment -->
     <string name="search">搜索</string>
     <string name="business_recommendatio">商家推荐</string>
