@@ -32,6 +32,13 @@
     <dimen name="goods_list_adapter_item_distance_address_text_size">10sp</dimen>
     <dimen name="goods_list_adapter_item_padding">30dp</dimen>
     <dimen name="goods_list_adapter_item_good_img_size">69dp</dimen>
+    <!-- MoreBusinessesFragmentAdapterItem -->
+    <dimen name="more_business_adapter_item_business_name_text_size">15sp</dimen>
+    <dimen name="more_business_adapter_item_rmb_text_size">9sp</dimen>
+    <dimen name="more_business_adapter_item_good_price_text_size">13sp</dimen>
+    <dimen name="more_business_adapter_item_distance_text_size">10sp</dimen>
+    <dimen name="more_business_adapter_item_padding">30dp</dimen>
+    <dimen name="more_business_adapter_item_icon_size">34dp</dimen>
     <!-- 添加的符号背景大小 -->
     <dimen name="symbol_add_normal_size">19dp</dimen>
     <!-- tabDrawable -->

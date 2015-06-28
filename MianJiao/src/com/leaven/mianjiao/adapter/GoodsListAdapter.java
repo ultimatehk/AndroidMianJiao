@@ -47,26 +47,26 @@ public class GoodsListAdapter extends BaseAdapter {
 	@SuppressLint("InflateParams")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		HomeItemViewHolder holder = null;
+		GoodListItemViewHolder holder = null;
 		if (convertView == null) {
 			convertView = LayoutInflater.from(mContext).inflate(R.layout.item_goods_list_adapter, null);
-			holder = new HomeItemViewHolder(convertView);
+			holder = new GoodListItemViewHolder(convertView);
 			convertView.setTag(holder);
 		} else {
-			holder = (HomeItemViewHolder) convertView.getTag();
+			holder = (GoodListItemViewHolder) convertView.getTag();
 		}
 		holder.bindData(getItem(position));
 		return convertView;
 	}
 
-	public class HomeItemViewHolder {
+	public class GoodListItemViewHolder {
 		private ImageView imgGoodImg;
 		private TextView tvGoodName;
 		private TextView tvGoodPrice;
 		private TextView tvDistanceAddress;
 		private View btnAddGood, imgAddGoodBg;
 
-		public HomeItemViewHolder(View layout) {
+		public GoodListItemViewHolder(View layout) {
 			imgGoodImg = (ImageView) layout.findViewById(R.id.imgGoodImg);
 			tvGoodName = (TextView) layout.findViewById(R.id.tvGoodName);
 			tvGoodPrice = (TextView) layout.findViewById(R.id.tvGoodPrice);

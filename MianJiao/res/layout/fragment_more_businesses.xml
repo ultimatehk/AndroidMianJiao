@@ -30,13 +30,23 @@
             android:singleLine="true" />
 
         <TextView
-            android:id="@+id/tvRMB"
+            android:id="@+id/tvOfficialPrice"
             style="@style/GoodsListAdapterRMBText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tvGoodPrice"
             android:layout_marginRight="@dimen/default_item_gap"
             android:layout_toRightOf="@id/imgGoodImg"
+            android:text="@string/official_price" />
+
+        <TextView
+            android:id="@+id/tvRMB"
+            style="@style/GoodsListAdapterRMBText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvGoodPrice"
+            android:layout_marginRight="@dimen/default_item_gap"
+            android:layout_toRightOf="@id/tvOfficialPrice"
             android:text="@string/symbol_rmb" />
 
         <TextView
@@ -49,7 +59,7 @@
             android:layout_toRightOf="@id/tvRMB" />
 
         <TextView
-            android:id="@+id/tvDistanceAddress"
+            android:id="@+id/tvGoodInfo"
             style="@style/GoodsListAdapterDistanceAddressText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
