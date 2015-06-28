@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/more_business_adapter_item_padding"
+    android:paddingRight="@dimen/more_business_adapter_item_padding" >
+
+    <ImageView
+        android:id="@+id/imgBusinessIcon"
+        android:layout_width="@dimen/more_business_adapter_item_icon_size"
+        android:layout_height="@dimen/more_business_adapter_item_icon_size"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/default_text_padding"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:layout_marginTop="@dimen/default_text_padding" />
+
+    <TextView
+        android:id="@+id/tvBusinessname"
+        style="@style/MoreBusinessesAdapterBusinessNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:layout_toLeftOf="@+id/tvDistance"
+        android:layout_toRightOf="@id/imgBusinessIcon"
+        android:ellipsize="marquee"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/tvDistance"
+        style="@style/MoreBusinessesAdapterDistanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:layout_toLeftOf="@+id/tvRMB" />
+
+    <TextView
+        android:id="@+id/tvRMB"
+        style="@style/MoreBusinessesAdapterRMBText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:layout_toLeftOf="@+id/tvGoodPrice"
+        android:text="@string/symbol_rmb" />
+
+    <TextView
+        android:id="@+id/tvGoodPrice"
+        style="@style/MoreBusinessesAdapterGoodPriceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:layout_toLeftOf="@+id/imgAddGoodBg" />
+
+    <ImageView
+        android:id="@+id/imgAddGoodBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/symbol_add_normal" />
+
+    <TextView
+        android:id="@+id/btnAddGood"
+        android:layout_width="@dimen/symbol_add_normal_size"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:paddingBottom="@dimen/default_item_gap"
+        android:paddingTop="@dimen/default_item_gap"
+        android:text="@string/symbol_add"
+        android:textColor="@color/default_white" />
+
+    <View
+        android:id="@+id/dashLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_divide_line"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/dash_line_light_gray" />
+
+</RelativeLayout>

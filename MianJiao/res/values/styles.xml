@@ -78,6 +78,27 @@
         <item name="android:textSize">@dimen/goods_list_adapter_item_distance_address_text_size</item>
         <item name="android:textColor">@color/default_more_light_blue</item>
     </style>
+    <!-- MoreBusinessesFragmentAdapterItem -->
+    <style name="MoreBusinessesAdapterBusinessNameText">
+        <item name="android:textSize">@dimen/more_business_adapter_item_business_name_text_size</item>
+        <item name="android:textColor">@color/default_dark_gray</item>
+    </style>
+
+    <style name="MoreBusinessesAdapterRMBText">
+        <item name="android:textSize">@dimen/more_business_adapter_item_rmb_text_size</item>
+        <item name="android:textColor">@color/default_dark_blue</item>
+    </style>
+
+    <style name="MoreBusinessesAdapterGoodPriceText">
+        <item name="android:textSize">@dimen/more_business_adapter_item_good_price_text_size</item>
+        <item name="android:textColor">@color/default_dark_blue</item>
+    </style>
+
+    <style name="MoreBusinessesAdapterDistanceText">
+        <item name="android:textSize">@dimen/more_business_adapter_item_distance_text_size</item>
+        <item name="android:textColor">@color/default_more_light_blue</item>
+    </style>
+
     <!-- 滚动条 -->
     <style name="ScrollbarStyle">
         <item name="android:scrollbarStyle">outsideOverlay</item>

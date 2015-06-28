@@ -2,12 +2,14 @@ package com.leaven.mianjiao.bean;
 
 import java.util.ArrayList;
 
-public class GoodsListItemBean implements IHomeItem {
+public class GoodsListItemBean implements IGoodsListItem {
 	public String imgUrl;
 	public String goodName;
 	public String goodPrice;
 	public String distance;
 	public String address;
+	public String yearsOfRelease;
+	public String goodWeight;
 
 	protected GoodsListItemBean(String imgUrl, String goodName, String goodPrice, String distance, String address) {
 		super();
@@ -16,6 +18,8 @@ public class GoodsListItemBean implements IHomeItem {
 		this.goodPrice = goodPrice;
 		this.distance = distance;
 		this.address = address;
+		this.yearsOfRelease = "2014";
+		this.goodWeight = "260";
 	}
 
 	@Override
@@ -41,6 +45,16 @@ public class GoodsListItemBean implements IHomeItem {
 	@Override
 	public String getAddress() {
 		return address;
+	}
+
+	@Override
+	public String getYearsOfRelease() {
+		return yearsOfRelease;
+	}
+
+	@Override
+	public String getWeight() {
+		return goodWeight + "g";
 	}
 
 	public static ArrayList<GoodsListItemBean> getList(String searchkey) {
