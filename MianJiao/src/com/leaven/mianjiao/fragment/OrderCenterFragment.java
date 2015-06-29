@@ -1,10 +1,15 @@
 package com.leaven.mianjiao.fragment;
 
+import com.leaven.mianjiao.MultiTabActivity;
 import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.pager.BasePager;
 import com.leaven.mianjiao.tools.Constant;
+import com.leaven.mianjiao.view.CustomToast;
+import com.leaven.mianjiao.view.LoginRegisterPopupWindow;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +41,8 @@ public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 	@Override
 	public void onSelected() {
 		super.onSelected();
+		LoginRegisterPopupWindow menuWindow = new LoginRegisterPopupWindow((MultiTabActivity) getActivity());
+		menuWindow.showAtLocation(getActivity().getWindow().getDecorView(), Gravity.CENTER, 0, 0);
 		// TODO 选择
 	}
 

@@ -36,7 +36,7 @@ public class CommonUtils {
 		}
 		InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 		if (imm.isActive()) {
-			imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
+			imm.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 		}
 	}
 

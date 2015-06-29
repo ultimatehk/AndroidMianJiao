@@ -15,6 +15,7 @@
     <color name="default_divide_line">#ffb1b1b1</color>
     <color name="default_light_divide_line">#ffd9d9d9</color>
     <color name="default_open_content_bg">#fff2f2f2</color>
+    <color name="default_dialog_bg">#60000000</color>
     <!-- titleBar -->
     <color name="title_bar_title_text_color">#ff000000</color>
     <color name="title_bar_left_text_color">#ff000000</color>
@@ -22,5 +23,8 @@
     <color name="title_bar_bg">#ffffffff</color>
     <!-- scrollbarColor -->
     <color name="scrollbar_bg_color">#af383838</color>
+    <!-- login_register -->
+    <color name="login_register_transparent_blue">#cc43b2c6</color>
+    <color name="login_register_light_blue">#ffa1d9e1</color>
 
 </resources>

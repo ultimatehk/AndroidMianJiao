@@ -116,5 +116,10 @@
         <item name="android:windowEnterAnimation">@anim/inputtodown</item>
         <item name="android:windowExitAnimation">@anim/outdowntoup</item>
     </style>
+    <!-- 注册登录 -->
+    <style name="LoginRegisterPopupWindow">
+        <item name="android:textSize">@dimen/login_register_text_size</item>
+        <item name="android:textColor">@color/login_register_light_blue</item>
+    </style>
 
 </resources>

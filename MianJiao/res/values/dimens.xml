@@ -47,6 +47,11 @@
     <!-- 滚动条宽度 -->
     <dimen name="scrollbar_width">4dp</dimen>
     <dimen name="scrollbar_padding_width">1dp</dimen>
+    <!-- 登录注册popupwindow -->
+    <dimen name="login_register_text_size">19sp</dimen>
+    <dimen name="login_register_padding">12dp</dimen>
+    <dimen name="login_register_item_height">40dp</dimen>
+    <dimen name="login_register_bg_radio">10dp</dimen>
     <!-- 个人中心 关于我们 -->
     <dimen name="user_center_about_us_text_size">13sp</dimen>
 

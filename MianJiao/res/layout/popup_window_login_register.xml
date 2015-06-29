@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/popLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/login_register_padding"
+        android:background="@drawable/bg_login_register"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/btnLogin"
+            style="@style/LoginRegisterPopupWindow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_register_item_height"
+            android:gravity="center"
+            android:text="@string/login" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_divide_line"
+            android:background="@color/login_register_light_blue" />
+
+        <TextView
+            android:id="@+id/btnRegister"
+            style="@style/LoginRegisterPopupWindow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_register_item_height"
+            android:gravity="center"
+            android:text="@string/register" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_divide_line"
+            android:background="@color/login_register_light_blue" />
+
+        <TextView
+            android:id="@+id/btnCancel"
+            style="@style/LoginRegisterPopupWindow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_register_item_height"
+            android:gravity="center"
+            android:text="@string/cancel" />
+    </LinearLayout>
+
+</RelativeLayout>
