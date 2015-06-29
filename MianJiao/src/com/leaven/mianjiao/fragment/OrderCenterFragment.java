@@ -4,7 +4,6 @@ import com.leaven.mianjiao.MultiTabActivity;
 import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.pager.BasePager;
 import com.leaven.mianjiao.tools.Constant;
-import com.leaven.mianjiao.view.CustomToast;
 import com.leaven.mianjiao.view.LoginRegisterPopupWindow;
 
 import android.annotation.SuppressLint;
