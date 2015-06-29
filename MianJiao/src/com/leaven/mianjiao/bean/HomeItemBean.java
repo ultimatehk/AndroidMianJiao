@@ -3,11 +3,11 @@ package com.leaven.mianjiao.bean;
 import java.util.ArrayList;
 
 public class HomeItemBean implements IHomeItem {
-	public String imgUrl;
-	public String goodName;
-	public String goodPrice;
-	public String distance;
-	public String address;
+	private String imgUrl;
+	private String goodName;
+	private String goodPrice;
+	private String distance;
+	private String address;
 
 	protected HomeItemBean(String imgUrl, String goodName, String goodPrice, String distance, String address) {
 		super();

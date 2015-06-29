@@ -1,11 +1,6 @@
 package com.leaven.mianjiao.bean;
 
-public interface IHomeItem {
-	public abstract String getImgURL();
-
-	public abstract String getGoodName();
-
-	public abstract String getGoodPrice();
+public interface IHomeItem extends IOrderInfoItem {
 
 	public abstract String getDistance();
 

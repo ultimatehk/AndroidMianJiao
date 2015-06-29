@@ -1,6 +1,6 @@
 package com.leaven.mianjiao.bean;
 
-public interface IMoreBusinessItem {
+public interface IMoreBusinessItem extends IOrderInfoItem {
 	public abstract String getBusinessIcon();
 
 	public abstract String getBusinessName();

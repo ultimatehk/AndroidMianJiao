@@ -80,7 +80,7 @@ public class MoreBusinessesAdapter extends BaseAdapter {
 			}
 		}
 
-		public void bindData(MoreBusinessItem data) {
+		public void bindData(final MoreBusinessItem data) {
 			int imageSize = mContext.getResources().getDimensionPixelOffset(
 					R.dimen.more_business_adapter_item_icon_size);
 			Glide.with(mContext).load(data.getBusinessIcon()).override(imageSize, imageSize).centerCrop()
@@ -97,7 +97,7 @@ public class MoreBusinessesAdapter extends BaseAdapter {
 						imgAddGoodBg.getLocationOnScreen(locations);
 						int x = locations[0];// 获取组件当前位置的横坐标
 						int y = locations[1];// 获取组件当前位置的纵坐标
-						((MultiTabActivity) mContext).addGoods(x, y);
+						((MultiTabActivity) mContext).addGoods(x, y, data);
 					}
 				}
 			});

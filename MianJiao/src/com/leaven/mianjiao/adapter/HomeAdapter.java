@@ -75,7 +75,7 @@ public class HomeAdapter extends BaseAdapter {
 			imgAddGoodBg = layout.findViewById(R.id.imgAddGoodBg);
 		}
 
-		public void bindData(HomeItemBean data) {
+		public void bindData(final HomeItemBean data) {
 			int imageSize = mContext.getResources().getDimensionPixelOffset(R.dimen.home_adapter_item_good_img_size);
 			Glide.with(mContext).load(data.getImgURL()).override(imageSize, imageSize).centerCrop().into(imgGoodImg);
 			tvGoodName.setText(data.getGoodName());
@@ -91,7 +91,7 @@ public class HomeAdapter extends BaseAdapter {
 						imgAddGoodBg.getLocationOnScreen(locations);
 						int x = locations[0];// 获取组件当前位置的横坐标
 						int y = locations[1];// 获取组件当前位置的纵坐标
-						((MultiTabActivity) mContext).addGoods(x, y);
+						((MultiTabActivity) mContext).addGoods(x, y, data);
 					}
 				}
 			});

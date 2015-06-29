@@ -25,8 +25,8 @@ public class OrderCenterFragment extends BasePager.AbstractPagerFragment {
 	/**
 	 * 增加商品
 	 */
-	public void addGood() {
-		RightNum++;
+	public void addGood(int count) {
+		RightNum = count;
 		notifyBottomTabStateChanged();
 	}
 

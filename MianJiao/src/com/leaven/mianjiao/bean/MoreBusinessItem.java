@@ -7,6 +7,11 @@ public class MoreBusinessItem implements IMoreBusinessItem {
 	private String businessName;
 	private String distance;
 	private String goodPrice;
+	private static GoodsListItemBean good;
+
+	public static void setGood(GoodsListItemBean good) {
+		MoreBusinessItem.good = good;
+	}
 
 	public MoreBusinessItem(String icon, String businessName, String distance, String goodPrice) {
 		super();
@@ -43,6 +48,16 @@ public class MoreBusinessItem implements IMoreBusinessItem {
 					"商户名称" + i, "距离" + i * 12 + "米", "5800"));
 		}
 		return list;
+	}
+
+	@Override
+	public String getImgURL() {
+		return good.getImgURL();
+	}
+
+	@Override
+	public String getGoodName() {
+		return good.getGoodName();
 	}
 
 }

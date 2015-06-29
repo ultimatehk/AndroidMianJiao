@@ -3,13 +3,13 @@ package com.leaven.mianjiao.bean;
 import java.util.ArrayList;
 
 public class GoodsListItemBean implements IGoodsListItem {
-	public String imgUrl;
-	public String goodName;
-	public String goodPrice;
-	public String distance;
-	public String address;
-	public String yearsOfRelease;
-	public String goodWeight;
+	private String imgUrl;
+	private String goodName;
+	private String goodPrice;
+	private String distance;
+	private String address;
+	private String yearsOfRelease;
+	private String goodWeight;
 
 	protected GoodsListItemBean(String imgUrl, String goodName, String goodPrice, String distance, String address) {
 		super();

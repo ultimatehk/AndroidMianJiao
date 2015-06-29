@@ -52,6 +52,7 @@ public class MoreBusinessesFragment extends BaseHomeFragment {
 		holder = new GoodViewHolder(v);
 		mlistView = (ListView) v.findViewById(R.id.listView);
 		holder.bindData(goodListItemBean);
+		MoreBusinessItem.setGood(goodListItemBean);
 		handler.sendEmptyMessage(MSG_WHAT_SET_ADAPTER);
 		return v;
 	}

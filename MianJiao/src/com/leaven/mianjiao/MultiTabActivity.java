@@ -1,11 +1,16 @@
 package com.leaven.mianjiao;
 
+import java.util.ArrayList;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.leaven.mianjiao.bean.IOrderInfoItem;
+import com.leaven.mianjiao.bean.IOrderItem;
+import com.leaven.mianjiao.bean.OrderItemBean;
 import com.leaven.mianjiao.fragment.OrderCenterFragment;
 import com.leaven.mianjiao.pager.MultiTabFragment;
 import com.leaven.mianjiao.tools.CommonUtils;
@@ -24,6 +29,8 @@ public class MultiTabActivity extends BaseActivity {
 
 	private long exitTime;
 
+	private ArrayList<IOrderItem> orderGoodsList;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,6 +43,7 @@ public class MultiTabActivity extends BaseActivity {
 		multiTabFragment = new MultiTabFragment();
 		transaction.add(R.id.tab_fragment_container, multiTabFragment);
 		transaction.commit();
+		orderGoodsList = new ArrayList<IOrderItem>();
 		// TODO 检查更新
 		// checkUpdate();
 	}
@@ -61,7 +69,20 @@ public class MultiTabActivity extends BaseActivity {
 	 * @param y
 	 *            y的位置（相对于整个屏幕）
 	 */
-	public void addGoods(int x, int y) {
+	public void addGoods(int x, int y, IOrderInfoItem goodInfo) {
+		boolean hasGood = false;
+		for (int i = 0; i < orderGoodsList.size(); i++) {
+			IOrderItem item = orderGoodsList.get(i);
+			if (item.getGoodName().equals(goodInfo.getGoodName())) {
+				int count = item.getGoodCount();
+				item.updateCount(count++);
+				hasGood = true;
+				break;
+			}
+		}
+		if (!hasGood) {
+			orderGoodsList.add(new OrderItemBean(goodInfo));
+		}
 		int statusHeight = CommonUtils.getStatusHeight(this);
 		ViewHelper.setAlpha(animationRing, 0.3f);
 		ViewHelper.setScaleX(animationRing, 0.3f);
@@ -90,12 +111,11 @@ public class MultiTabActivity extends BaseActivity {
 						animationRing.setVisibility(View.GONE);
 						OrderCenterFragment fragment = (OrderCenterFragment) multiTabFragment
 								.getFragment(MultiTabFragment.INDEX_OF_FRAGMENT_ORDER_CENTER);
-						fragment.addGood();
+						fragment.addGood(orderGoodsList.size());
 					}
 
 					@Override
 					public void onAnimationCancel(Animator animation) {
-
 					}
 				});
 	}
