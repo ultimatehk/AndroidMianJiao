@@ -9,9 +9,11 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.bumptech.glide.Glide;
 import com.leaven.mianjiao.R;
@@ -20,7 +22,7 @@ import com.leaven.mianjiao.bean.GoodsListItemBean;
 import com.leaven.mianjiao.bean.MoreBusinessItem;
 import com.leaven.mianjiao.pager.BaseHomeFragment;
 
-public class MoreBusinessesFragment extends BaseHomeFragment {
+public class MoreBusinessesFragment extends BaseHomeFragment implements OnItemClickListener {
 	private static final int MSG_WHAT_SET_ADAPTER = 0;
 	private static String TAG = "MoreBusinessesFragment";
 	private static GoodsListItemBean goodListItemBean;
@@ -51,6 +53,7 @@ public class MoreBusinessesFragment extends BaseHomeFragment {
 		View v = inflater.inflate(R.layout.fragment_more_businesses, null);
 		holder = new GoodViewHolder(v);
 		mlistView = (ListView) v.findViewById(R.id.listView);
+		mlistView.setOnItemClickListener(this);
 		holder.bindData(goodListItemBean);
 		MoreBusinessItem.setGood(goodListItemBean);
 		handler.sendEmptyMessage(MSG_WHAT_SET_ADAPTER);
@@ -105,5 +108,10 @@ public class MoreBusinessesFragment extends BaseHomeFragment {
 			tvGoodInfo.setText(data.getYearsOfRelease() + getActivity().getString(R.string.backbtn_blank_text_4)
 					+ data.getWeight());
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		openFragment(BusinessFragment.class);
 	}
 }

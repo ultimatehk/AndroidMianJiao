@@ -5,14 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leaven.mianjiao.R;
 import com.leaven.mianjiao.pager.BaseHomeFragment;
 
-public class BusinessesFragment extends BaseHomeFragment {
+public class BusinessFragment extends BaseHomeFragment {
 	private static String TAG = "BusinessesFragment";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return null;
+		View layout = inflater.inflate(R.layout.fragment_business, null);
+		return layout;
 	}
 
 	@Override

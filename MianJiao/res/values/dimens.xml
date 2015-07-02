@@ -52,6 +52,12 @@
     <dimen name="login_register_padding">12dp</dimen>
     <dimen name="login_register_item_height">40dp</dimen>
     <dimen name="login_register_bg_radio">10dp</dimen>
+    <!-- 商户页面 -->
+    <dimen name="business_default_padding">30dp</dimen>
+    <dimen name="business_default_vertical_padding">20dp</dimen>
+    <dimen name="business_image_size">90dp</dimen>
+    <dimen name="business_info_text_size">13sp</dimen>
+    <dimen name="business_btn_height">28dp</dimen>
     <!-- 个人中心 关于我们 -->
     <dimen name="user_center_about_us_text_size">13sp</dimen>
 
