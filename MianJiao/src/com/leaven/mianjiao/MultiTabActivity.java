@@ -7,6 +7,16 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.leaven.mianjiao.bean.IOrderInfoItem;
 import com.leaven.mianjiao.bean.IOrderItem;
@@ -16,13 +26,8 @@ import com.leaven.mianjiao.pager.MultiTabFragment;
 import com.leaven.mianjiao.tools.CommonUtils;
 import com.leaven.mianjiao.tools.Constant;
 import com.leaven.mianjiao.view.CustomToast;
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.Animator.AnimatorListener;
-import com.nineoldandroids.view.ViewHelper;
-import com.nineoldandroids.view.ViewPropertyAnimator;
 
 public class MultiTabActivity extends BaseActivity {
-	private View animationRing;
 	private FragmentManager fragmentManager;
 	private MultiTabFragment multiTabFragment;
 	public static final String KEY_TAB_INDEX = "tab_index";
@@ -35,7 +40,6 @@ public class MultiTabActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_multi_tab);
-		animationRing = findViewById(R.id.animationRing);
 		CommonUtils.initXGPush(this);
 		CommonUtils.initUmeng(this);
 		fragmentManager = getSupportFragmentManager();
@@ -71,6 +75,9 @@ public class MultiTabActivity extends BaseActivity {
 	 */
 	public void addGoods(int x, int y, IOrderInfoItem goodInfo) {
 		boolean hasGood = false;
+		final ImageView animationRing = new ImageView(this);
+		animationRing.setImageResource(R.drawable.ring_blue);
+		createAnimLayout().addView(animationRing);
 		for (int i = 0; i < orderGoodsList.size(); i++) {
 			IOrderItem item = orderGoodsList.get(i);
 			if (item.getGoodName().equals(goodInfo.getGoodName())) {
@@ -84,40 +91,54 @@ public class MultiTabActivity extends BaseActivity {
 			orderGoodsList.add(new OrderItemBean(goodInfo));
 		}
 		int statusHeight = CommonUtils.getStatusHeight(this);
-		ViewHelper.setAlpha(animationRing, 0.3f);
-		ViewHelper.setScaleX(animationRing, 0.3f);
-		ViewHelper.setScaleY(animationRing, 0.3f);
-		ViewHelper.setTranslationX(animationRing, x);
-		ViewHelper.setTranslationY(animationRing, y - statusHeight);
 		int[] location = new int[2];
 		multiTabFragment.getRightNumLocation(MultiTabFragment.INDEX_OF_FRAGMENT_ORDER_CENTER, location);
 		int translationX = location[0];
-		int translationY = location[1] - statusHeight;
-		ViewPropertyAnimator.animate(animationRing).translationX(translationX).translationY(translationY).scaleX(1)
-				.scaleY(1).alpha(1).setDuration(Constant.ANIMATION_DURATION_TIME).setListener(new AnimatorListener() {
+		int translationY = location[1];
 
-					@Override
-					public void onAnimationStart(Animator animation) {
-						animationRing.setVisibility(View.VISIBLE);
-					}
+		TranslateAnimation translateAnimationX = new TranslateAnimation(x, translationX, 0, 0);
+		translateAnimationX.setRepeatCount(0);// 动画重复执行的次数
+		translateAnimationX.setInterpolator(new LinearInterpolator());
+		translateAnimationX.setDuration(Constant.ANIMATION_DURATION_TIME);
+		translateAnimationX.setFillAfter(true);
 
-					@Override
-					public void onAnimationRepeat(Animator animation) {
+		TranslateAnimation translateAnimationY2 = new TranslateAnimation(0, 0, y, y - 2 * statusHeight);
+		translateAnimationY2.setInterpolator(new DecelerateInterpolator());
+		translateAnimationY2.setRepeatCount(0);// 动画重复执行的次数
+		translateAnimationY2.setDuration(80);
 
-					}
+		TranslateAnimation translateAnimationY = new TranslateAnimation(0, 0, 0, translationY - y + 2 * statusHeight);
+		translateAnimationY.setInterpolator(new AccelerateInterpolator());
+		translateAnimationY.setRepeatCount(0);// 动画重复执行的次数
+		translateAnimationY.setStartOffset(80);
+		translateAnimationY.setFillAfter(true);
 
-					@Override
-					public void onAnimationEnd(Animator animation) {
-						animationRing.setVisibility(View.GONE);
-						OrderCenterFragment fragment = (OrderCenterFragment) multiTabFragment
-								.getFragment(MultiTabFragment.INDEX_OF_FRAGMENT_ORDER_CENTER);
-						fragment.addGood(orderGoodsList.size());
-					}
+		AnimationSet set = new AnimationSet(false);
+		set.setFillAfter(false);
+		set.addAnimation(translateAnimationX);
+		set.addAnimation(translateAnimationY2);
+		set.addAnimation(translateAnimationY);
+		set.setDuration(Constant.ANIMATION_DURATION_TIME);// 动画的执行时间
+		set.setAnimationListener(new AnimationListener() {
 
-					@Override
-					public void onAnimationCancel(Animator animation) {
-					}
-				});
+			@Override
+			public void onAnimationStart(Animation animation) {
+				animationRing.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				animationRing.setVisibility(View.GONE);
+				OrderCenterFragment fragment = (OrderCenterFragment) multiTabFragment
+						.getFragment(MultiTabFragment.INDEX_OF_FRAGMENT_ORDER_CENTER);
+				fragment.addGood(orderGoodsList.size());
+			}
+		});
+		animationRing.startAnimation(set);
 	}
 
 	@Override
@@ -140,6 +161,23 @@ public class MultiTabActivity extends BaseActivity {
 		}
 	}
 
+	/**
+	 * @Description: 创建动画层
+	 * @param
+	 * @return void
+	 * @throws
+	 */
+	private ViewGroup createAnimLayout() {
+		ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
+		LinearLayout animLayout = new LinearLayout(this);
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.MATCH_PARENT);
+		animLayout.setLayoutParams(lp);
+		animLayout.setId(Integer.MAX_VALUE);
+		animLayout.setBackgroundResource(android.R.color.transparent);
+		rootView.addView(animLayout);
+		return animLayout;
+	}
 	// private void checkUpdate() {
 	//
 	// NetCon.getInstance(MultiTabActivity.this).checkUpdate("android", QfqMeta.getVersionName(MultiTabActivity.this),

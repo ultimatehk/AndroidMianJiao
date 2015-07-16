@@ -9,11 +9,4 @@
         android:layout_height="match_parent" >
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/animationRing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ring_blue"
-        android:visibility="gone" />
-
 </RelativeLayout>

@@ -52,5 +52,5 @@ public class Constant {
 	/**
 	 * 进入购物车动画时长
 	 */
-	public static final long ANIMATION_DURATION_TIME = 1000L;
+	public static final long ANIMATION_DURATION_TIME = 300L;
 }
