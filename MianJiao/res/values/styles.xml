@@ -126,5 +126,15 @@
         <item name="android:textSize">@dimen/business_info_text_size</item>
         <item name="android:textColor">@color/default_dark_gray</item>
     </style>
+    <!-- 商户页面Adapter -->
+    <style name="BusinessAdapterGoodNameText">
+        <item name="android:textSize">@dimen/business_good_adapter_good_name_text_size</item>
+        <item name="android:textColor">@color/default_dark_gray</item>
+    </style>
+
+    <style name="BusinessAdapterGoodPriceText">
+        <item name="android:textSize">@dimen/business_good_adapter_good_price_text_size</item>
+        <item name="android:textColor">@color/default_more_dark_blue</item>
+    </style>
 
 </resources>

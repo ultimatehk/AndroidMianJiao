@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_white"
+    android:padding="@dimen/business_good_adapter_padding" >
+
+    <ImageView
+        android:id="@+id/imgGoodImg"
+        android:layout_width="@dimen/business_good_adapter_img_size"
+        android:layout_height="@dimen/business_good_adapter_img_size"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/business_good_adapter_padding" />
+
+    <TextView
+        android:id="@+id/tvGoodName"
+        style="@style/BusinessAdapterGoodNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgGoodImg"
+        android:lines="2"
+        android:text="djfaoigjoadigdddsddddddddddddddddddddsdfsdfsfdsfdddddddddddddd" />
+
+    <TextView
+        android:id="@+id/tvRMB"
+        style="@style/BusinessAdapterGoodPriceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGoodName"
+        android:layout_marginRight="@dimen/default_item_gap"
+        android:text="@string/symbol_rmb" />
+
+    <TextView
+        android:id="@+id/tvGoodPrice"
+        style="@style/BusinessAdapterGoodPriceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tvRMB"
+        android:layout_toRightOf="@id/tvRMB" />
+
+    <View
+        android:id="@+id/btnAddGood"
+        android:layout_width="@dimen/default_press_size"
+        android:layout_height="@dimen/default_press_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/imgAddGoodBg"
+        android:layout_width="@dimen/business_good_adapter_add_symbol_size"
+        android:layout_height="@dimen/business_good_adapter_add_symbol_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/default_more_light_blue"
+        android:gravity="center"
+        android:text="@string/symbol_add"
+        android:textColor="@color/default_white"
+        android:textSize="@dimen/business_good_adapter_add_text_size" />
+
+</RelativeLayout>

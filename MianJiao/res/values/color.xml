@@ -26,5 +26,7 @@
     <!-- login_register -->
     <color name="login_register_transparent_blue">#cc43b2c6</color>
     <color name="login_register_light_blue">#ffa1d9e1</color>
+    <!-- business GridView divide Color -->
+    <color name="business_grid_view_bg">#ffcccccc</color>
 
 </resources>
