@@ -12,14 +12,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
- * 字体默认大小为16sp，颜色默认为default_blue
+ * 字体默认大小为13sp，颜色默认为default_dark_blue
  * 
  * @author wjz
  *
  */
 public class HeadLineView extends RelativeLayout {
-	private static final int TITLE_TEXT_SIZE_DEFAULT = 16;
-	private static final int TITLE_TEXT_COLOR_DEFAULT = R.color.default_blue;
+	private static final int TITLE_TEXT_SIZE_DEFAULT = 13;
+	private static final int TITLE_TEXT_COLOR_DEFAULT = R.color.default_dark_blue;
 
 	/**
 	 * headline TextSize

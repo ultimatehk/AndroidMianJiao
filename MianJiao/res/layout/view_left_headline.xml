@@ -11,6 +11,17 @@
         android:gravity="left"
         android:singleLine="true" />
 
+    <TextView
+        android:id="@+id/arrowRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/left_head_line_arrow_margin_right"
+        android:text="@string/arrow_right"
+        android:textColor="@color/default_more_light_blue"
+        android:textSize="@dimen/left_head_line_arrow_text_size" />
+
     <View
         android:id="@+id/topDividorLine"
         style="@style/DefaultHorizontalDivideLine"

@@ -3,6 +3,7 @@
 
     <string name="app_name">面酵</string>
     <string name="symbol_add">+</string>
+    <string name="arrow_right">></string>
     <string name="symbol_rmb">RMB</string>
     <string name="official_price">官方报价</string>
     <string name="more_businesses">更多商家></string>

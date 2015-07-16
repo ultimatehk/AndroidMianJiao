@@ -12,7 +12,9 @@
     <dimen name="title_bar_height">53dp</dimen>
     <dimen name="title_bar_horizontal_padding">12dp</dimen>
     <!-- headLine -->
-    <dimen name="head_line_height">41dp</dimen>
+    <dimen name="head_line_height">23dp</dimen>
+    <dimen name="left_head_line_arrow_margin_right">10dp</dimen>
+    <dimen name="left_head_line_arrow_text_size">15sp</dimen>
     <!-- toast -->
     <dimen name="toast_text_size">16sp</dimen>
     <dimen name="toast_margin">15dp</dimen>
@@ -63,7 +65,7 @@
     <dimen name="business_good_adapter_padding">9dp</dimen>
     <dimen name="business_good_adapter_img_size">66dp</dimen>
     <dimen name="business_good_adapter_good_name_text_size">9sp</dimen>
-    <dimen name="business_good_adapter_good_price_text_size">7sp</dimen>
+    <dimen name="business_good_adapter_good_price_text_size">9sp</dimen>
     <dimen name="business_good_adapter_add_symbol_size">11dp</dimen>
     <dimen name="business_good_adapter_add_text_size">10sp</dimen>
     <!-- 个人中心 关于我们 -->
