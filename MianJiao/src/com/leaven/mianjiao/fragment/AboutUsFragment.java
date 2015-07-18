@@ -20,6 +20,8 @@ public class AboutUsFragment extends Fragment implements View.OnClickListener {
 		headLine = (LeftHeadLineView) v.findViewById(R.id.headLine);
 		tvAboutUs = v.findViewById(R.id.tvAboutUs);
 		headLine.setOnClickListener(this);
+		headLine.initClickStatus(false);
+		tvAboutUs.setVisibility(View.GONE);
 		return v;
 	}
 
@@ -28,7 +30,7 @@ public class AboutUsFragment extends Fragment implements View.OnClickListener {
 		CommonUtils.hideSoftInputFromWindow(v);
 		switch (v.getId()) {
 		case R.id.headLine:
-			tvAboutUs.setVisibility(tvAboutUs.isShown() ? View.GONE : View.VISIBLE);
+			tvAboutUs.setVisibility(headLine.onClick() ? View.VISIBLE : View.GONE);
 			break;
 		}
 
