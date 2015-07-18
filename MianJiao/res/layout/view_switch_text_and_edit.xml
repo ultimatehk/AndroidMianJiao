@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/user_certer_view_switcher_height"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/switchViewTextView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/default_more_light_blue"
+            android:textSize="@dimen/user_certer_view_switcher_text_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_divide_line"
+            android:background="@drawable/dash_line_light_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/switchViewEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edit"
+            android:gravity="center_vertical"
+            android:hint=""
+            android:textColor="@color/default_blue"
+            android:textSize="@dimen/user_certer_view_switcher_text_size" />
+
+        <TextView
+            android:id="@+id/switchViewConfirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/default_blue"
+            android:gravity="center"
+            android:paddingLeft="@dimen/user_certer_default_padding"
+            android:paddingRight="@dimen/user_certer_default_padding"
+            android:text="@string/sure"
+            android:textColor="@color/default_white"
+            android:textSize="@dimen/user_certer_view_switcher_text_size" />
+    </LinearLayout>
+
+</merge>
