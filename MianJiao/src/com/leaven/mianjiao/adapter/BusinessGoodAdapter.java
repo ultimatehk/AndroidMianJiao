@@ -31,7 +31,7 @@ public class BusinessGoodAdapter extends BaseAdapter {
 
 	@Override
 	public BusinessGoodListItemBean getItem(int position) {
-		return mGoodList == null || mGoodList.isEmpty() ? null : mGoodList.get(position);
+		return mGoodList == null || mGoodList.size() <= position ? null : mGoodList.get(position);
 	}
 
 	@Override

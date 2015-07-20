@@ -25,23 +25,20 @@ public class MoreBusinessesAdapter extends BaseAdapter {
 		this.moreBusinessesItemList = moreBusinessesItemList;
 	}
 
-	private boolean isEmptyList() {
-		return moreBusinessesItemList == null || moreBusinessesItemList.isEmpty();
-	}
-
 	@Override
 	public int getCount() {
-		return isEmptyList() ? 0 : moreBusinessesItemList.size();
+		return moreBusinessesItemList == null ? 0 : moreBusinessesItemList.size();
 	}
 
 	@Override
 	public MoreBusinessItem getItem(int position) {
-		return isEmptyList() ? null : moreBusinessesItemList.get(position);
+		return moreBusinessesItemList == null || moreBusinessesItemList.size() <= position ? null
+				: moreBusinessesItemList.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return isEmptyList() ? 0 : moreBusinessesItemList.size();
+		return position;
 	}
 
 	@SuppressLint("InflateParams")

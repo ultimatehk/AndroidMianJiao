@@ -25,23 +25,19 @@ public class GoodsListAdapter extends BaseAdapter {
 		this.goodsItemList = goodsItemList;
 	}
 
-	private boolean isEmptyList() {
-		return goodsItemList == null || goodsItemList.isEmpty();
-	}
-
 	@Override
 	public int getCount() {
-		return isEmptyList() ? 0 : goodsItemList.size();
+		return goodsItemList == null ? 0 : goodsItemList.size();
 	}
 
 	@Override
 	public GoodsListItemBean getItem(int position) {
-		return isEmptyList() ? null : goodsItemList.get(position);
+		return goodsItemList == null || goodsItemList.size() <= position ? null : goodsItemList.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return isEmptyList() ? 0 : goodsItemList.size();
+		return position;
 	}
 
 	@SuppressLint("InflateParams")

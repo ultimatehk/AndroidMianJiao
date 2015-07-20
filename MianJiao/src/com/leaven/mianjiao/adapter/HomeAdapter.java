@@ -25,23 +25,19 @@ public class HomeAdapter extends BaseAdapter {
 		this.homeItemList = homeItemList;
 	}
 
-	private boolean isEmptyList() {
-		return homeItemList == null || homeItemList.isEmpty();
-	}
-
 	@Override
 	public int getCount() {
-		return isEmptyList() ? 0 : homeItemList.size();
+		return homeItemList == null ? 0 : homeItemList.size();
 	}
 
 	@Override
 	public HomeItemBean getItem(int position) {
-		return isEmptyList() ? null : homeItemList.get(position);
+		return homeItemList == null || homeItemList.size() <= position ? null : homeItemList.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return isEmptyList() ? 0 : homeItemList.size();
+		return position;
 	}
 
 	@SuppressLint("InflateParams")
