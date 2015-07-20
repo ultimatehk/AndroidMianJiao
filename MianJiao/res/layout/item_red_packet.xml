@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_red_packet_more_dark_blue"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvRedPacketTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/user_center_red_packet_height"
+        android:gravity="center"
+        android:textColor="@color/default_white"
+        android:textSize="@dimen/user_center_red_packet_text_size" />
+
+    <TextView
+        android:id="@+id/tvRedPacketDescription"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/user_center_red_packet_height"
+        android:gravity="center"
+        android:lines="3"
+        android:paddingLeft="@dimen/user_certer_default_padding"
+        android:paddingRight="@dimen/user_certer_default_padding"
+        android:textColor="@color/default_light_gray"
+        android:textSize="@dimen/user_center_red_packet_description_text_size" />
+
+</LinearLayout>

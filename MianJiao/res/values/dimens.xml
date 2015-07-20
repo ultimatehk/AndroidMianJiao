@@ -74,6 +74,12 @@
     <dimen name="user_certer_user_avatar_size">69dp</dimen>
     <dimen name="user_certer_view_switcher_height">18dp</dimen>
     <dimen name="user_certer_view_switcher_text_size">13sp</dimen>
+    <!-- 我的红包 -->
+    <dimen name="user_center_red_packet_horizontal_padding">4dp</dimen>
+    <dimen name="user_center_red_packet_default_padding">7dp</dimen>
+    <dimen name="user_center_red_packet_height">38dp</dimen>
+    <dimen name="user_center_red_packet_text_size">20sp</dimen>
+    <dimen name="user_center_red_packet_description_text_size">7sp</dimen>
     <!-- 个人中心 关于我们 -->
     <dimen name="user_center_about_us_text_size">13sp</dimen>
 

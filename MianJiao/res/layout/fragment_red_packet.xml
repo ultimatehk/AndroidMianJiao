@@ -5,9 +5,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.leaven.mianjiao.view.HeadLineView
+    <com.leaven.mianjiao.view.LeftHeadLineView
+        android:id="@+id/headLineView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/head_line_height"
         app:headline_title="@string/my_red_packet" />
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/default_open_content_bg"
+        android:horizontalSpacing="@dimen/user_center_red_packet_horizontal_padding"
+        android:listSelector="@color/default_transparent"
+        android:numColumns="3"
+        android:padding="@dimen/user_center_red_packet_default_padding"
+        android:scrollbars="none"
+        android:verticalSpacing="@dimen/user_center_red_packet_default_padding" >
+    </GridView>
 
 </LinearLayout>
