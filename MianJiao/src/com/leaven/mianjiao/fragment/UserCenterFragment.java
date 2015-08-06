@@ -58,7 +58,10 @@ public class UserCenterFragment extends BasePager.AbstractPagerFragment implemen
 			ft.add(R.id.redPacketContainer, new RedPacketFragment());
 			ft.add(R.id.orderHistoryContainer, orderHistoryFragment);
 			ft.add(R.id.aboutUsContainer, new AboutUsFragment());
-			ft.commit();
+			try {
+				ft.commit();
+			} catch (Exception ex) {
+			}
 		}
 		scrollView.setOnScrollViewChangeListener(this);
 		return layout;

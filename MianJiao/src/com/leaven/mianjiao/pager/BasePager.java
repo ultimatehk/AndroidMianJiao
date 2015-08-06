@@ -48,7 +48,10 @@ public class BasePager extends RelativeLayout {
 			for (int i = 0; i < mPagerFragments.size(); i++) {
 				ft.add(getId(), mPagerFragments.get(i));
 			}
-			ft.commit();
+			try {
+				ft.commit();
+			} catch (Exception ex) {
+			}
 		}
 	}
 
@@ -66,7 +69,10 @@ public class BasePager extends RelativeLayout {
 					ft.hide(mPagerFragments.get(i));
 				}
 			}
-			ft.commit();
+			try {
+				ft.commit();
+			} catch (Exception ex) {
+			}
 		}
 	}
 
